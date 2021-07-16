@@ -1,3 +1,26 @@
+# INDEX
+
+- [Javascript](#javascript)
+  * [연습 방법](#-----)
+  * [변수와 상수](#------)
+    + [변수 let](#---let)
+    + [상수 const](#---const)
+    + [null, undefined](#null--undefined)
+  * [연산자](#---)
+    + [비교연산자](#-----)
+  * [조건문](#---)
+    + [if, else, else if](#if--else--else-if)
+    + [switch 문](#switch--)
+  * [함수](#--)
+  * [ES6 ECMAScript6, ES2015](#es6-ecmascript6--es2015)
+    + [template literal](#template-literal)
+    + [arrow function](#arrow-function)
+  * [객체](#--)
+
+---
+
+<br>
+
 # Javascript
 electron으로 데스크탭 프로그램을 만들수도 있다.
 react native, nativescript로 모바일용으로도 만들 수 있다.
@@ -5,14 +28,20 @@ node.js로 javascript를 사용할 수 있기 때문에 iot에서도 사용할 �
 
 https://learnjs.vlpt.js 참조
 
+<br>
+
 ## 연습 방법
 codesandbox에서 주황색(vanaila script)을 통해서 javascript 자체만 사용할 수 있다.
 크롬에서 벗어나 codesandbox 자체를 설치할 수 있다.
 크롬 우측 상단 점 3개를 누르면 code sandbox 설치가 있다.
 
+<br>
+
 ## 변수와 상수
 var은 이제 사용하지 않는다.
 구형 브라우저에서는 let과 const를 못 쓰지만 babel을 이용해서 구형 브라우저에서도 작동할 수 있도록 할 수 있다.
+
+<br>
 
 ### 변수 let
 변수는 바꿀 수 있는 값.
@@ -29,7 +58,7 @@ let value = 2
 ```javascript
 const value = 1
 value = 2 // 오류
-```
+``swd`
 
 ### 문자열 선언
 취향 차이에 따라 작은 따음표, 큰 따음표를 사용할 수 있다.
@@ -48,6 +77,8 @@ let criminal
 console.log(criminal) // undefined
 ```
 
+<br>
+
 ## 연산자
 ```javascript
 //미리 계산을하고 보여주느냐 보여주고나서 계산하느냐 차이.
@@ -57,7 +88,7 @@ console.log(a);  // 2
 console.log(++a); // 3
 ```
 
-## 비교연산자
+### 비교연산자
 `==` 이퀄싸인을 2개 쓰면 타입을 검사하지 않기 때문에 아래와 같은 경우 `true`다.
 ```javascript
 const a = false
@@ -69,7 +100,10 @@ console.log(equals)
 왠만하면 `===`를 쓰면 된다. `==`은 쓸 경우 없다라고 생각하자.
 반대로는 `!==`를 쓰면 된다. 마찬가지로 `!=`는 쓰지말자.
 
-## 조건문 if, else, else if
+<br>
+
+## 조건문
+### if, else, else if
 ```javascript
 const a = 1;
 if (a + 1 === 2) {
@@ -125,7 +159,9 @@ switch(device) {
 ```
 > 브레이크를 안쓰면 break있는데까지 다음 case문들을 실행한다.
 
-### 함수
+<br>
+
+## 함수
 `function 함수명(param1, param2)` 이런식으로 사용한다.
 
 ex1
@@ -146,10 +182,12 @@ function hello(name) {
 hello('taejoon') // hello taejoon
 ```
 
-### ES6 ECMAScript6, ES2015
+<br>
+
+## ES6 ECMAScript6, ES2015
 매년 새로운 자바스크립트 문법이 나온다.
 템플릿 리터럴에 대해서 알아보자.
-**template literal**
+### template literal
 
 ```js
 function hello(name) {
@@ -178,9 +216,8 @@ function getGrade(score) {
 const grade = getGrade(83);
 console.log(grade); // B
 ```
-<br>
 
-**arrow function**
+### arrow function
 화살표 함수에 대해 알아보자.
 ex1
 ```js
@@ -201,6 +238,8 @@ console.log(sum); // 3
 ```
 
 > **일반 function**에서 쓰는 `this`와 **화살표 함수**에서 쓰는 `this`가 다르다.
+
+<br>
 
 ## 객체
 하나의 이름에 여러 종류를 넣을 수 있게 해준다.
@@ -244,7 +283,10 @@ printHero(ironMan)
 printHero(captainAmerica)
 ```
 
+<br>
+
 **ES6의 비구조 할당(객체 구조 분해)를 사용하면 조금 더 편하게 사용할 수 있다.**
+
 아래 예제에서는 파라미터값으로 받아온 hero를 분해해서 hero안에 있는 키 값들을 불러왔다.
 순서를 바꿔도 상관없다. hero안에서 그대로 가져다가 쓰는 것이기 때문이다.
 
@@ -272,6 +314,7 @@ printHero(captainAmerica)
 ```
 
 *개선2*
+
 ```js
 const ironMan = {
     name: '토니 스타크',
