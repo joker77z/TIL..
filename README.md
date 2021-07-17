@@ -19,4 +19,4 @@ https://nonmajor.tistory.com/
 - [210716 / React conditional Rendering](https://github.com/joker77z/TIL/blob/main/react/210716-react-conditionalRendering.md)
 
 ### html
-- [210717 / html naver login page structure analysis](https://github.com/joker77z/TIL/blob/main/html/210717-html-naver-structure.md)
+- [210717 / Html naver login page structure analysis](https://github.com/joker77z/TIL/blob/main/html/210717-html-naver-structure.md)
