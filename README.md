@@ -22,6 +22,7 @@ https://joker77z.github.io/
 - [210716 / React JSX](https://github.com/joker77z/TIL/blob/main/react/210716-react-jsx.md)
 - [210716 / React props](https://github.com/joker77z/TIL/blob/main/react/210716-react-props.md)
 - [210716 / React conditional Rendering](https://github.com/joker77z/TIL/blob/main/react/210716-react-conditionalRendering.md)
+- [210719 / React Dynamic value change(ex Counter, Input)][https://github.com/joker77z/TIL/blob/main/react/210719-react-dynamicValue.md]
 
 ### html
 - [210717 / Html naver login page structure analysis](https://github.com/joker77z/TIL/blob/main/html/210717-html-naver-structure.md)
