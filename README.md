@@ -3,8 +3,9 @@
 
 <br>
 
-## tistory
+## Blog
 https://nonmajor.tistory.com/
+https://joker77z.github.io/
 
 <br>
 
