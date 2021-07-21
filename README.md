@@ -49,4 +49,4 @@ https://joker77z.github.io/
 - [210721 / 격자판 최대합](https://github.com/joker77z/TIL/blob/main/algorithm/javascript/basic/02-04.js)
 - [210721 / 문자열 압축](https://github.com/joker77z/TIL/blob/main/algorithm/javascript/basic/02-05.js)
 - [210721 / 멘토링](https://github.com/joker77z/TIL/blob/main/algorithm/javascript/basic/02-06.js)
-- [210721 / Least Recently Used(카카오 캐시 문제 변형)](https://github.com/joker77z/TIL/blob/main/algorithm/javascript/basic/02-06.js)
+- [210721 / Least Recently Used(카카오 캐시 문제 변형)](https://github.com/joker77z/TIL/blob/main/algorithm/javascript/basic/02-07.js)
