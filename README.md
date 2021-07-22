@@ -22,8 +22,9 @@ https://joker77z.github.io/
   - 함수의 기본 파라미터
 - [210721 / Javascript 유용한 기술(3)](https://github.com/joker77z/TIL/blob/main/javascript/210721-3-javascript-usefulif.md)
   - includes, if->switch->함수 코드줄이기
-- [210721 / Javascript 유용한 기술(4)](https://github.com/joker77z/TIL/blob/main/javascript/210721-4-javascript-destructruing.md)
-  - 비구조화 할당
+- [210721 / Javascript 비구조화 할당](https://github.com/joker77z/TIL/blob/main/javascript/210721-4-javascript-destructruing.md)
+- [210722 / Javascript spread, rest](https://github.com/joker77z/TIL/blob/main/javascript/210722-1-js-spreadRest.md)
+- [210722 / Javascript scope](https://github.com/joker77z/TIL/blob/main/javascript/210722-2-js-scope.md)
 
 ### react
 - [210716 / React JSX](https://github.com/joker77z/TIL/blob/main/react/210716-react-jsx.md)
