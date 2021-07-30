@@ -51,7 +51,7 @@
 // 강사님
 // 투 포인트는 단골이다. 프론트엔드에서 단골.
 function solution(nums, m) {
-    let lt = nums[0];
+    let lt = 0;
     let answer = 0;
     let sum = 0;
 
