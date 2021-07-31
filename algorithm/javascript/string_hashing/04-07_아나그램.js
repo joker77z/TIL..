@@ -18,19 +18,7 @@
 function solution(s) {
     const sH = new Map();
     let answer;
-    let max = Number.MIN_SAFE_INTEGER;
-
-    for(x of s) {
-        sH.set(x, sH.get(x)+1 || 1);
-    }
     
-    for(let [key, value] of sH) {
-        let tmp = value;
-        if(tmp > max) {
-            answer = key;
-            max = tmp;
-        }
-    }
     return answer;
 }
 
