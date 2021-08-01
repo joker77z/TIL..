@@ -46,9 +46,9 @@ class minHeap{
     downheap(pos, len){ // len이 마지막 자료가 있는 index. pos는 len/2까지 가야 된다. //pos는 마지막 자료의 부모까지 내려가야 한다.
         let tmp = this.heap[pos]// 루트에 있던 3을 저장해놓자.
         let child // 자식 index는 child
-        while(pos>=parseInt(len/2)) { // len/2 = 마지막부모의 인덱스. 여기까지 pos가 내려간다.
+        while(pos<=parseInt(len/2)) { // len/2 = 마지막부모의 인덱스. 여기까지 pos가 내려간다.
             child=pos*2; // pos라는 부모의 child는 왼쪽 자식의 인덱스.
-            if(child<len && this.heap[child]<this.heap[child+1]) child++; //child는 둘 중 큰 애를 가리키고 있다. len은 마지막 자료가 있는 인덱스. 이것보다 작아야 옆을 본다. 최소 1개는 child가 작아야 한다. 최소 마지막 자료 앞까지는 해야 한다. 왜냐면 자료1개라면 왼쪽을 바라보고 있는데 오른쪽에 없는 것을 바라보면 indexoutofrange가 다른언어에서는 뜬다.
+            if(child<len && this.heap[child]>this.heap[child+1]) child++; //child는 둘 중 큰 애를 가리키고 있다. len은 마지막 자료가 있는 인덱스. 이것보다 작아야 옆을 본다. 최소 1개는 child가 작아야 한다. 최소 마지막 자료 앞까지는 해야 한다. 왜냐면 자료1개라면 왼쪽을 바라보고 있는데 오른쪽에 없는 것을 바라보면 indexoutofrange가 다른언어에서는 뜬다.
             if(tmp<=this.heap[child]) break;// 이러면 while문 멈춘다. 이퀄은. 같으면 멈춰야 한다.
             // pos가 현재는 tmp 자리. 큰 child가 부모자리로 올라온다. tmp는 이제 자식으로 가야한다.
             this.heap[pos] = this.heap[child]
@@ -74,9 +74,9 @@ function solution(nums) {
     for(let x of nums) {
         minH.insert(x);
     }
-    // console.log(minH.get()); // 하나 꺼낸 9 출력.
-    minH.show(); 
-    
+    console.log(minH.get()) // 제일작은 2를 꺼낸다.
+     
+    minH.show();
 }
 
-console.log(solution([5, 4, 3, 6, 7, 2, 9]))
+console.log(solution([5, 4, 3, 6, 7, 2, 9])) // 2 5 3 6 7 4 9
