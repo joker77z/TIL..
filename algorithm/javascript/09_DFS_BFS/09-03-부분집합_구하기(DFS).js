@@ -8,5 +8,29 @@
     입력 : 3
     출력 : [[1, 2, 3], [1, 2], [1, 3], [1], [2, 3], [2], [3]]
 
+    ‣ 해설
+    
+    ‣ 깨달은 점
+
 */  
 
+function solution(n){
+    let answer=[];
+    let part=[];
+    function DFS(L){
+        if(L===n+1){
+            if(part.length!==0) answer.push(part.slice());
+        }
+        else{
+            part.push(L);
+            DFS(L+1);
+            part.pop();
+            DFS(L+1);
+        }
+    }
+    DFS(1);
+    return answer;
+}
+
+console.log(solution(3));
+// [[1, 2, 3], [1, 2], [1, 3], [1], [2, 3], [2], [3]]

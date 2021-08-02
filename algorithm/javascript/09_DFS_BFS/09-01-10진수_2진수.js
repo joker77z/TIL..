@@ -1,18 +1,19 @@
-function solution(L) {
+function solution(n) {
     let answer = [];
+    let tmp = [];
 
-    function DFS(v) {
-        if(v/2 === 0) {
-            return;
-        } else {
-            let tmp = parseInt(v/2)
-            DFS(tmp);
-            answer.push(v%2)
+    function DFS(n) {
+       if(n==0) return;
+       else {
+           DFS(parseInt(n/2));
+           tmp.push(n%2);
         }
     }
-
-    DFS(L);
-    return answer.join('');
+    DFS(n);
+    for(let i=0; i<tmp.length; i++) {
+        answer = answer*10+tmp[i];
+    }
+    return answer;
 }
 
 
