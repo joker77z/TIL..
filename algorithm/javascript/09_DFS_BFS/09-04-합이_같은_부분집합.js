@@ -48,7 +48,7 @@
 
 
 
-//flag 찾았으면 true로 만들게.
+// flag 찾았으면 true로 만들게.
 // total에서 sum을 빼고 ? 를 하면 반이니까 부분집합의 합 반이다.
 function solution(nums) {
   let answer="NO", flag=false;
@@ -77,3 +77,4 @@ function solution(nums) {
   return answer;
 }
 console.log(solution([1, 3, 5, 6, 7, 10]))
+console.log(solution([3, 9, 11, 13]))

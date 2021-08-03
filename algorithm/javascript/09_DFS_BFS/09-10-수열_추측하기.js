@@ -21,7 +21,6 @@ function solution(n, f) {
     let answer = 0, flag=false;
     // 2차원배열을 하나 잡는다.
     let dy = Array.from(Array(11), () => Array(11).fill(0)); 
-    // 33까지니까 35개 빈 배열만든다. 35행 35열 잡았다.
     let ch = Array.from({length:n+1}, () => 0)
     let p = [], b = [];
     function combi(n, r) {

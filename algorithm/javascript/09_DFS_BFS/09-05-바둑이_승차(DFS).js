@@ -76,6 +76,10 @@ function solution(nums, c) {
         // 다 태운다고치고 sum에다가 total-tsum을 다 더한다.
         // 근데도 answer보다도 작다? 그러면 그 가지는 가볼 필요조차 없다.return.
 
+        // FIXME: 설명듣고나서 좀 깨달았다
+        // 가지가 뻗어나가다가 answer가 이미 어느정도 큰 값을 가지고 있다하면
+        // 다른 방향으로 뻗어나간 가지가 지금까지 더한 sum에 앞으로 더할 것 까지 합해도 그 전 가지에서 구했던 answer보다 적다면 필요가 없는 가지다.
+
         if(L===n) {
             answer = Math.max(answer, sum);
         }
