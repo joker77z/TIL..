@@ -24,6 +24,7 @@ function solution(n, edges) {
     }
     //오름차순이니까
     edges.sort((a, b)=>a[2]-b[2]); // 가중치값들에 의해 오름차순.
+    // TODO: 오름차순 하는 이유?
 
     //간선개수돌면된다.
     for(let [a, b, c] of edges) {

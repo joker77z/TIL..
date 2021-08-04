@@ -34,7 +34,6 @@ function solution(n, nums, s1, s2){
     for(let [a, b] of nums) {
         Union(a, b);
     }
-
     if(Find(s1) !== Find(s2)) answer="NO";
 
     return answer;
@@ -42,4 +41,4 @@ function solution(n, nums, s1, s2){
 
 
 
-console.log(9, [[1, 2], [2, 3], [3, 4], [1, 5], [6, 7], [7, 8], [8, 9]], 3, 8) // NO
+console.log(solution(9, [[1, 2], [2, 3], [3, 4], [1, 5], [6, 7], [7, 8], [8, 9]], 3, 8)); // NO
