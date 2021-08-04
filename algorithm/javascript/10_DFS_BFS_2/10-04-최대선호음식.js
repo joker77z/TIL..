@@ -8,9 +8,9 @@
 
 function solution(nums, d, k) {
     let answer = Number.MIN_SAFE_INTEGER; // 최대구해야되서.
-    n = nums.length; // 학생수
-    pow=Array.from({length:d+1}, ()=>0); // 양념번호에다가 가중치주려고. d가 양념개수니까.
-    st=Array.from({length:n}, ()=>0); // student. 선호도가 들어간다.
+    const n = nums.length; // 학생수
+    let pow=Array.from({length:d+1}, ()=>0); // 양념번호에다가 가중치주려고. d가 양념개수니까.
+    let st=Array.from({length:n}, ()=>0); // student. 선호도가 들어간다.
 
     // pow index번호를 양념번호라고 생각해라.
     pow[1]=1; // 1번 인덱스에 1
