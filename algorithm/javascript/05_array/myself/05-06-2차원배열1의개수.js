@@ -9,12 +9,12 @@
 function solution(nums) {
     // map 사용해서 각 행의 index, 1의개수로 새로 만들자.
     let answer = nums.map((row, i) => ({
-        i, cnt: row.reduce((a, b) => {
-           return a+b;     
-        }, 0)})).sort((a, b) => a.cnt - b.cnt).map((el) => {
-            return el.i;
-        })
-    return answer;
+        i, cnt: row.reduce((a, b) => a+b, 0)
+    }))
+    console.log(answer)
+    // .sort((a, b) => a.cnt-b.cnt)
+    // .map(el => el.i)
+    // return answer;
 }
 
 console.log(solution([[1, 0, 0, 1],
