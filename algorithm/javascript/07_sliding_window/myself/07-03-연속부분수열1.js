@@ -14,3 +14,20 @@
         그러다가 if(sum===m)일 때 answer++;
 */
 
+function solution(nums, m) {
+    let answer = 0;
+    let sum = 0;
+    let lt = 0;
+    for(let rt=0; rt<nums.length; rt++) {
+        sum += nums[rt];
+        if(sum === m) answer++;
+        while(sum>m) {
+            sum -= nums[lt];
+            lt++;
+            if(sum === m) answer++;
+        }
+    }
+    return answer;
+}
+
+console.log(solution([1, 2, 1, 3, 1, 1, 1, 2], 6))
