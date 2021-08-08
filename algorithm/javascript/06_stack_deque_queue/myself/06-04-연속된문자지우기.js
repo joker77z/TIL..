@@ -11,3 +11,20 @@
     2. 비어있지 않으면 stack의 stack[stack[length-1]]과 추가할 data[i]를 비교해서 같다면 stack.pop()을 해버리고
     같지 않다면 stack.push(data[i])를 한다.
 */
+
+function solution(s) {
+    let stack = [];
+    let answer;
+    for(let i=0; i<s.length; i++) {
+        if(stack[stack.length-1] === s[i]) {// 스택의 마지막과 이번에 들어올 요소가 같다면
+            stack.pop();
+        } else {
+            stack.push(s[i]);
+        }
+    }
+    answer = stack.join('');
+    return answer;
+}
+
+console.log(solution("acbbcaa"))
+console.log(solution("bacccaba"))
