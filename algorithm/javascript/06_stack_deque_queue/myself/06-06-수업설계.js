@@ -15,3 +15,22 @@
     ✨ 즉, 같은 요소 순서만 비교하면 된다.
     plan에 있는 것들을 하나씩 꺼내면서 queue에 include한지 검사해서 include하다면 꺼낸 요소가 queue.shift한 것과 같은지 비교해서 다르면 바로 return false;
 */
+
+function solution(need, s) { // ✅ need, plan하지 말고 need, s로 하는게 난 더 안헤깔린다.
+    let answer = "YES";
+    // need는 배열로 만들어줘야 need에 포함하고 있는지 확인하는 includes를 쓸 수 있다. 
+    need = need.split('');
+    for(let i=0; i<s.length; i++) { // s개수만큼 필수과목과 비교해야 한다.
+        if(need.includes(s[i])) {
+            if(need.shift() !== s[i]) answer = "NO";
+        }
+    }
+    if(need.length>0) answer = "NO";
+    return answer;
+}
+
+console.log(solution("CBA", "CBDAGE")) // YES
+console.log(solution("CBA", "CADBGE")) // NO
+console.log(solution("CBA", "CDAGBE")) // NO
+console.log(solution("CBA", "CBDBAGE")) // YES
+console.log(solution("CBA", "CGEDBA")) // YES
