@@ -13,3 +13,21 @@
     k번째에서 그냥 queue.shift()를 한다.
 
 */
+
+function solution(n, k) {
+    let answer;
+    let queue = Array.from({length:n}, (v, i) => i+1);
+    while(queue.length) {
+        // 2개를 queue 뒤에 붙여주고 3번째인 것을 지워준다.
+        for(let i=0; i<k-1; i++) {
+            queue.push(queue.shift());
+        }
+        queue.shift();
+        if(queue.length === 1) {
+            answer = queue.shift();
+        }
+    }
+    return answer;
+}
+
+console.log(solution(8, 3));
