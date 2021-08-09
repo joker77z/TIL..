@@ -2,7 +2,7 @@ function solution(nums, m) {
     let answer = 0;
     let lt=0, rt=nums.length-1;
     nums.sort((a, b) => a-b);
-
+    
     while(lt<=rt) {
         if(nums[lt]+nums[rt] <= m) {
             answer++;

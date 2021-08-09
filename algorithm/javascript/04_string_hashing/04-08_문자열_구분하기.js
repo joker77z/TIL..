@@ -21,11 +21,24 @@
 */
 
 function solution(words) {
-    for()
-
+    let answer, i;
+    let sH = new Map();
+    for (i = 0; i < words[0].length; i++) {
+        let flag = true;
+        for (let j = 0; j < words.length; j++) {
+            let x = words[j].substring(0, i + 1);
+            if (sH.has(x)) {
+                flag = false;
+                break;
+            }
+            sH.set(x, 1);
+        }
+        if (flag) break;
+    }
+    answer = i + 1;
     return answer;
 }
 
-
-// console.log(solution(["seeasue", "sesseysu", "semeas"])) // 3
-console.log(solution(["ackky", "kabck", "yokkcs"])) // 1
+console.log(solution(["seeasue", "sesseysu", "semeas"]))
+// console.log(solution(["ackky", "kabck", "yokkcs"]))
+// console.log(solution(["longlong", "longtong", "longbig"]))

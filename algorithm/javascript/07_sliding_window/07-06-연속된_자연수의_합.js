@@ -9,6 +9,8 @@
 
 function solution(n) {
     let arr = Array.from({ length: parseInt(n / 2) + 1 }, (v, i) => i + 1);
+    //point: 하나의 공식처럼 외우자. n으로 15가 주어졌을 때 1~8까지 중에서 연속된 수 2개 이상으로 연속된 수열을 만들 수 있다.
+
     let sum = 0;
     let lt = 0;
     let answer = 0;
@@ -23,5 +25,5 @@ function solution(n) {
     }
     return answer;
   }
-  console.log(solution(n));
+  console.log(solution(15));
 

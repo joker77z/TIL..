@@ -5,30 +5,20 @@ function solution(s, e) {
         let queue=[];
         queue.push(s); // 0레벨값에 5넣고
         ch[s]=1; // ch배열에 5짜리 넣고 방문했다고 1표시.
-        let L=0;// 레벨변수 답이될꺼 0으로 초기화
+        let L=0; // 레벨변수 답이될꺼 0으로 초기화
         
         while(queue.length) { // 비어서 0이되면 멈춘다.
-            let len = queue.length; // while문안에서 큐의 길이를 구해서 for문이 한바퀴 돌때마다 하나씩 꺼낼꺼내다. 하나씩 꺼내서 뭘 할꺼다. 뻗어나가는 자식들 큐에넣고 할꺼다.
-
-            // 0레벨일 때는 큐에1개 들어가 있어서 1바퀴 돈다.
-            // 1레벨일 때는 3바퀴.
+            let len = queue.length; 
             for(let i=0; i<len; i++){
-                //처음에 하나 꺼낸다.
                 let x = queue.shift();
-                
-                // 나왔을 때 찾았다고 해보자.
-                // if(x===e) return L; // 뻗어나가는게 많다보면 늦어질수도 있다. 위치를 옮겨보자.
-
                 for(let nx of [x-1, x+1, x+5]) {// nx = nextx
-                    //하나씩 nx에 들어올꺼다. nx가 x의 자식들이다.
-                    if(nx===e) return L+1; // 만들어지는 자식에서 큐에서 나오기 전에 미리 확인하는거다. 더 빠르다. 이 위치로 옮길 수 있다.
-
-                    if(nx>0 && nx<=10000 && ch[nx]===0) // 좌표벗어나면 안되니까 0보다 크고 범위 안에 들고방문안했어야 된다.
+                    if(nx===e) return L+1; 
+                    if(nx>0 && nx<=10000 && ch[nx]===0)
                     ch[nx] = 1;
                     queue.push(nx);
                 }
             }
-            L++; //1레벨이 끝나고 나면 2레벨
+            L++; 
         }
     }
     answer = BFS();

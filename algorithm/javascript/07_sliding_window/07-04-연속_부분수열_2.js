@@ -62,9 +62,14 @@ function solution(nums, m) {
         sum+=nums[i];
         if(sum===m) answer++; // 이건 그냥 0번 인덱스부터 더해서 m인지 확인.
         if(nH.has(sum-m)) {// 이런 키값이 있는지 보는 것.
+            console.log('-------------')
+            console.log(nH.get(sum-m))
+            console.log('-------------')
             answer += nH.get(sum-m);
         }
         nH.set(sum, nH.get(sum)+1 || 1);
+        console.log(nH)
+        console.log(`✨ answer : ${answer}`)
     }
     return answer;
 }

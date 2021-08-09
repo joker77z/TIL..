@@ -51,3 +51,5 @@ function solution(nums, h) {
     return answer;
 }
 console.log(solution([29, 12, 24, 5, 19], 6)) // 24
+console.log(solution([29, 12, 24, 5, 19, 12, 25, 23], 12)); //19
+console.log(solution([29, 12, 24, 5, 19, 12, 25, 23, 82, 100], 15)); //29

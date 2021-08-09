@@ -1,9 +1,10 @@
 function dfs(v) {
     if(v > 7) return;
     else {
-        console.log(v);
         dfs(v*2)
+        console.log(v);
         dfs(v*2+1)
+        // 후위순위는 안되는듯하다 ?
     }
 }
 
