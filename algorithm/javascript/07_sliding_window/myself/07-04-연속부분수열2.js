@@ -16,5 +16,21 @@
     그러다가 만약 맵에 (sum-m)이 있다면 answer에 sum-m만큼 추가시킨다.
     예를 들어서 1, 2, 3, -3일 때 
 
-    FIXME:
 */
+
+function solution(nums, m) {
+    let answer = 0;
+    let sum = 0;
+    let nH = new Map();
+    for(let i=0; i<nums.length; i++) {
+        sum += nums[i];
+        if(sum === m) answer++;
+        if(nH.has(sum-m)) {
+            answer += nH.get(sum-m);
+        }
+        nH.set(sum, nH.get(sum)+1 || 1);
+    }
+    return answer;
+}
+
+console.log(solution([1, 2, 3, -3, 1, 2], 3)) // 6
