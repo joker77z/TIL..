@@ -33,12 +33,7 @@ body{
     position: relative;
     border-radius: 0 0 15px 15px;
 }
-.box {
-    width: 100px;
-    height: 100px;
-    background: red;
-    border-radius: 500px;
-}
+/* 로고 */
 .logo {
     margin-top: 0;
     margin-bottom: 0;
@@ -50,6 +45,33 @@ body{
 }
 .logo a, .logo img{
     display: block;
+}
+/* 안내링크 */
+.member-service {
+    background-color: yellow;
+    /* display: flex;
+    justify-content: flex-end; */
+    list-style: none;
+    margin:0;
+    padding-left: 0;
+
+    font-size: 0;
+    line-height: 0;
+    text-align: right;
+    padding: 2px 0; /* tap으로 윤곽선 돌아다닐 때 윤곽선이 깔끔하게 보이게 함 */
+}
+.member-service li {
+    display: inline-block;
+    /* 0.75*16 = 0.75rem */
+    font-size: 0.875rem;
+    line-height: 1.15;
+}
+.member-service li:nth-child(n+2)::before {
+    content: ":";
+}
+.member-service a {
+    display: inline-block;
+    padding: 8px;
 }
 .visual{
     background-color: #2a9d8f;
