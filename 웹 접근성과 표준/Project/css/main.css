@@ -1,3 +1,4 @@
+@import url('./fonts.css');
 *, *::before, *::after{
     /* CSS3에서 재정의 콜론 2개 : 가상 요소 선택자, 
     콜론 1개 : 가상 클래스(수도 클래스) 선택자 */
@@ -6,11 +7,18 @@
     /* width에 패딩과 border를 포함한다. 마진은 포함하지 않는다. */
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+    /* 부모가 가지고 있는 색 적용하겠다. */
+    color: inherit;
+}
 body{
+    /* 산스 세리프 : 고딕계열. 네트윅 이슈로 다운받지 못했으면 시스템에 sans-serif 가져와달라.*/
+    font-family: 'Spoqa Han Sans Neo', sans-seif;
+    font-weight: 400;
     margin: 0;
 }
 .container{
-    /* width: 940px; */
     background-color: gray;
 }
 /* width를 container에 넣었더니 footer에서 전체 그라데이션을 넣기 힘들다.
@@ -18,96 +26,65 @@ body{
 
 .header, .visual, .main, .slogan{
     width: 940px;
-    /* content-box가 기본으로 되어있어서 940px이 실제괄호 사이즈다. */
-    /* padding: 20px;  */
-    /* border까지 더해서 가로가 1000px이다. */
-    /* border: 10px solid red; */
-    /* margin: 0 auto는 가운데있는 것 같은 착시효과를 일으킨다. */
-    /* margin: 0 auto; */
-
-    /* firefox만 지원했다가 chrome도 지원한다 */
-    /* 글자가 흘러가는 방향축에 따라 자동으로 auto */
-    /* margin, margin-inline, padding, padding-line 등 이런 것들을 공부해서 정리해놔야 한다.!!!!!!!!!! */
     margin: 0 auto;
-    /* 이렇게 하면 position:absolute를 제외하고는 margin에 아무것도 놓을 수가 없다. */
 }
 .header {
-    background-color: blue;
-    /* 컨테이닝 블럭 검색해서 찾아봐라. relative가 아니여도 된다.*/
-    position: relative; 
+    background-color: white;
+    position: relative;
+    border-radius: 0 0 15px 15px;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 500px;
 }
 .logo {
+    margin-top: 0;
+    margin-bottom: 0;
     position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0;
+    top: 45px;
+    left: 65px;
+    font-size: 1rem; /* 현재 폰트크기 만큼 */
+    line-height: 1; /* 현재 폰트크기 만큼 */
 }
-.member-service{
-    list-style: none;
-    display: flex;
-    padding-left: 0;
-}
-.member-service a {
-    text-decoration: none;
-    color: white;
-    /* rem단위를 선호하신다 */
-    font-size: 1.5em;
-}
-.member-service li {
-    margin: 0.5em;
-    text-transform: uppercase;
-}
-.member-service li:nth-child(3){
-    margin-right: auto;
+.logo a, .logo img{
+    display: block;
 }
 .visual{
-    background-color: orange;
+    background-color: #2a9d8f;
 }
 .main{
-    background-color: aqua;
-    /* 뷰포트절반 메인이 차지하게 */
-    height: 50vh;
-    display: flex;
-    /* justify-content: space-between; */
-    /* justify-content: space-around; */
-    /* evenly하면 딱인데 IE11에서 안된다! */
-    /* justify-content: space-evenly;  */
-
-    /* flex를 지원하지만 IE에서 안되는 부분들을 생각해서
-    부분별로 적용한다.
-    비트윈과 패딩을 섞어 쓸 때 IE에서도 깨지지 않는다. */
-    padding:30px; 
-    justify-content: space-between;
+    background-color: #e9c46a;
+    display: flow-root;
+    padding: 30px 15px;
+    min-height: 450px;
 }
+/* .main::after {
+    content: '';
+    display: block;
+    clear: both;
+} */
+/* .clearfix {
+    clear:both;
+} */
 .group{
-    /* flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 100%; */
-    /* flex-basis를 유심히 보자. */
-    /* flex: 1 1 100%; */
+    /* height: 30vh; */
+    margin: 0 15px;
 }
 .group1{
-    background-color: tomato;
-    /* 100%의 절반만 할당된다. 반응형에서 이런식 컨트롤이 좋다. */
-    /* flex-basis: 50%; */
-
-    /* 전통적인 방식 */
+    background-color: #d5cfe1;
+    float: left;
     width: 250px;
-    order: 1; /* 제일 뒤로 간다 */
 }
 .group2{
     background-color: olive;
-
-    /* 전통적인 방식 */
+    float: left;
     width: 380px;
-    order: -1; /* 0이 기본이니까 제일 앞으로 간다. */
-    /* order는 애플리케이션 개발할 때 사용자가 커스텀 작업할 때 사용할 수 있다. */
 }
 .group3{
     background-color: brown;
-
-    /* 전통적인 방식 */
+    float: left;
     width: 190px;
 }
 .slogan{
@@ -116,4 +93,3 @@ body{
 .footer{
     background-color: violet;
 }
-/* color palette */
