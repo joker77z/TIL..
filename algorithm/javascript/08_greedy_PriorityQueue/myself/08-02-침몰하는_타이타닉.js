@@ -18,9 +18,23 @@
 */
 
 function solution(nums, m) {
-    nums.sort((a, b) => a-b)
+    let lt = 0;
+    let rt = nums.length-1;
+    let answer = 0;
 
-    
+    nums.sort((a, b) => a-b) // 오름차순.
+    while(lt<rt) {
+        if(nums[lt] + nums[rt] > m) { // 제일 좌측과 제일 우측을 더한 값이 m보다 작다면
+            rt--;
+            answer++; // 모든 생존자가 목표이기 때문에 혼자라도 타고 간다.
+
+        } else { // m보다 작다면
+            answer++;
+            lt++;
+            rt--;
+        }
+    }
+    return answer;
 }
 
 console.log(solution([90, 50, 70, 100, 60], 140)) // 3
