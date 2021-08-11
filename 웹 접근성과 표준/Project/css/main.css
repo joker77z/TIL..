@@ -1,19 +1,31 @@
 @import url('./fonts.css');
 *, *::before, *::after{
-    /* CSS3에서 재정의 콜론 2개 : 가상 요소 선택자, 
-    콜론 1개 : 가상 클래스(수도 클래스) 선택자 */
-    /* 콜론 2개를 하나만 써서 레벨2부터 지원해서 가능하긴하다 */
-
-    /* width에 패딩과 border를 포함한다. 마진은 포함하지 않는다. */
     box-sizing: border-box;
 }
 a {
     text-decoration: none;
-    /* 부모가 가지고 있는 색 적용하겠다. */
     color: inherit;
 }
+/* 숨김 콘텐츠 */
+.a11y-hidden {
+    background-color: red;
+    position: absolute;
+    /* 1. 위로튀어버리는 문제로 사용X */
+    /* top: -9999em; */
+    
+    /* 2. 작은 점으로 만들면서 overflow:hidden해서 넘치는거 안보이게 한다. */
+    /* 1px이라도 크기를 안주면 리더기가 요소를 읽을 수가 없다. */
+    width: 1px;
+    height: 1px;
+    margin: -1px; /* Negative margin에 대해서도 찾아봐라 */
+    clip-path: polygon(0 0, 0 0, 0 0); /* 더이상 점이 보이지 않는다. */
+    clip-path: inset(50%); /* 정중앙을 가리켜서 안보인다. 근데 구형브라우저는 안될 수 있다.*/
+    clip: rect(0, 0, 0, 0); /* 구형 브라우저 위해 */
+    clip: rect(0 0 0 0); /* IE호환을 위해 */
+    overflow: hidden;
+}
+
 body{
-    /* 산스 세리프 : 고딕계열. 네트윅 이슈로 다운받지 못했으면 시스템에 sans-serif 가져와달라.*/
     font-family: 'Spoqa Han Sans Neo', sans-seif;
     font-weight: 400;
     margin: 0;
@@ -21,9 +33,6 @@ body{
 .container{
     background-color: gray;
 }
-/* width를 container에 넣었더니 footer에서 전체 그라데이션을 넣기 힘들다.
-절대 마크업 구조를 바꾸지 말자. */
-
 .header, .visual, .main, .slogan{
     width: 940px;
     margin: 0 auto;
@@ -31,24 +40,22 @@ body{
 .header {
     background-color: white;
     position: relative;
+    padding: 0 30px;
     border-radius: 0 0 15px 15px;
 }
-/* 로고 */
 .logo {
     margin-top: 0;
     margin-bottom: 0;
     position: absolute;
     top: 45px;
     left: 65px;
-    font-size: 1rem; /* 현재 폰트크기 만큼 */
-    line-height: 1; /* 현재 폰트크기 만큼 */
+    font-size: 1rem; 
+    line-height: 1; 
 }
 .logo a, .logo img{
     display: block;
 }
-/* 안내링크 */
 .member-service {
-    background-color: yellow;
     /* display: flex;
     justify-content: flex-end; */
     list-style: none;
@@ -59,6 +66,8 @@ body{
     line-height: 0;
     text-align: right;
     padding: 2px 0; /* tap으로 윤곽선 돌아다닐 때 윤곽선이 깔끔하게 보이게 함 */
+    position: relative;
+    right: -10px;
 }
 .member-service li {
     display: inline-block;
@@ -70,8 +79,49 @@ body{
     content: ":";
 }
 .member-service a {
-    display: inline-block;
+    display: inline-block; /* padding 주기 위해 inline-block 처리*/
     padding: 8px;
+}
+/* 메인 메뉴 */
+.navigation {
+    padding: 5px 0 50px;
+    padding-bottom: 55px;
+}
+.menu {
+    background-color: orange;
+    margin: 0;
+    padding-left: 225px;
+    list-style: none; /* list-style-type 단축 */
+    height: 45px; /* 크기가 변동 될 가능성이 없는 컴포넌트라고 판단되서 높이 고정 */
+    /* margin-bottom: 50px; >> navigation에 padding-bottom을 준다.*/
+    box-shadow: 0 -2px 0 0 #000;
+}
+.menu-item {
+    float: left;
+    height: 100%;
+}
+.menu-button {
+    border: 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.7);
+    padding: 0 19px;
+    /* 부모 높이만큼 높이 주기 */
+    line-height: 45px;
+    font-weight: 700;
+    background-color: transparent;
+    color: white;
+    font-size: 1.0625rem; /* 17/16 alt+cmd + y */
+    text-shadow: -1px -1px 0 #000; /* 텍스트 쉐도우는 세번째 블러까지만 들어간다. */
+    text-shadow: 1px 1px 0 #000; /* 텍스트 쉐도우는 세번째 블러까지만 들어간다. */
+}
+/* 서브 메뉴 */
+.sub-menu {
+    position: absolute;
+    display: none;
+}
+.sub-menu li {
+    float: left;
+    margin-right: 10px;
+    background-color: purple;
 }
 .visual{
     background-color: #2a9d8f;
@@ -82,16 +132,7 @@ body{
     padding: 30px 15px;
     min-height: 450px;
 }
-/* .main::after {
-    content: '';
-    display: block;
-    clear: both;
-} */
-/* .clearfix {
-    clear:both;
-} */
 .group{
-    /* height: 30vh; */
     margin: 0 15px;
 }
 .group1{
