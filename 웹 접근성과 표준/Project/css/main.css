@@ -7,7 +7,7 @@ a {
     color: inherit;
 }
 /* 숨김 콘텐츠 */
-.a11y-hidden {
+.a11y-hidden, legend{
     background-color: red;
     position: absolute;
     /* 1. 위로튀어버리는 문제로 사용X */
@@ -31,11 +31,14 @@ body{
     margin: 0;
 }
 .container{
-    background-color: gray;
+    /* background: url(./images/bg_flower.png) no-repeat 50% 0 fixed; x축으로만 가운데 정렬, fixed는 스크롤 내렸을 때 배경이 고정되게 만들었다. */
+    background: url(./images/bg_flower.png) no-repeat 50% 0,  linear-gradient(#ccc 0%,  #eee 35%, #eee 50%, #fff 100%);
+    background-color: #999;
 }
 .header, .visual, .main, .slogan{
     width: 940px;
     margin: 0 auto;
+    height: 120px;
 }
 .header {
     background-color: white;
@@ -187,8 +190,61 @@ body{
     right: 0; /* 묻고답하기 칸 오른쪽 칸을 기준으로 됬다. */
     /* 한줄로 안되는 것을 방지하기 위해 .sub-menu */
 }
+@keyframes moveEffect {
+    /* from{
+    }
+    to{
+    } */
+    0% {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 1);
+        transform: translate(400px, 75px);
+    }
+}
+@keyframes fadeEffect {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .visual{
-    background-color: #2a9d8f;
+    height: 120px;
+    position: relative;
+}
+.visual::before, .visual::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    animation: fadeEffect 2000ms infinite alternate;
+}
+.visual::before { /*위 공통적인 사항은 따로 뺀다.*/
+    background-image: url(./images/ani_flower_01.png), url(./images/ani_flower_02.png);/* 사진이 넘어가니까 x좌표 변경 */
+    background-position: 0 -10px, 670px, 0;
+}
+.visual::after {
+    background-image: url(./images/ani_flower_03.png), url(./images/ani_flower_04.png);/* 사진이 넘어가니까 x좌표 변경 */
+    background-position: 300px 0, 800px 0;
+    animation-delay: 1000ms;
+}
+
+.visual-text {
+    display: inline-block; /* transform 되더라도 딱 블럭에 맞게 된다. */
+    animation-name: moveEffect;
+    animation-duration: 3000ms; /* 필수 속성 */
+    animation-fill-mode: forwards; /* 안끝나게 */
+    margin: 0;
 }
 .main{
     background-color: #e9c46a;
@@ -214,9 +270,163 @@ body{
     float: left;
     width: 190px;
 }
+/* 메인페이지  */
+/* 로그인 */
+/* .login {
+    background-color: orange;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+.login-heading {
+    font-size: 14px;
+    font-weight: 600;
+    color: yellow;
+}
+.login-form {
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+}
+fieldset {
+    margin: 0;
+    padding: 10px;
+    border: 0;
+    display: inline-block;
+    width: 75%;
+}
+fieldset div {
+    line-height: 30px;
+}
+legend {
+    display: none;
+}
+.user-email, .user-password {
+    display: inline-block;
+}
+.login-form input {
+    width:60%;
+    height: 25px;
+    float:right;
+}
+.login-form button {
+    background-color: orangered;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 55px;
+    margin: 10px;
+    border: 0;
+    border-radius: 5px;
+}
+.sign {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    font-size: 14px;
+}
+.sign li{
+    display: inline-block;
+    padding-left: 8px;
+} */
+
+/* 강사님 */
+/* legend는 보일필요가 없기 때문에 위 a11y-hidden 쪽에 추가해줬다. */
+
+.login {
+    background: radial-gradient(circle at right top, #e8882e, #e85b2c);
+    border-radius: 5px;
+    box-shadow: 5px 5px 0 0 #ccc;
+    padding: 10px;
+}
+.login-heading {
+    color: yellow;
+    margin: 0 0 10px 10px;
+    font-size: 1rem; /* 기본값으로 1.5rem이 있기 떄문에 1로 바꿔줌 */
+}
+.login-form {
+    background-color: #fff;
+    padding: 10px 10px 0 10px;
+    border-radius: 5px 5px 0 0;
+}
+.login fieldset {
+    padding: 0 0 10px 0;
+    border: 0;
+    background-color: white;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.user-password {
+    margin-top: 5px;
+}
+.login-form label {
+    font-size: 0.8125rem; /* 13/16 */
+    width: 4em;
+    display: inline-block
+}
+.login-form input {
+    width: 95px;
+    height: 22px;
+    border: 1px solid #ccc;
+    padding-left: 0.5em;
+}
+.button-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: orangered;
+    border: 1px solid rgb(255, 77, 0);
+    border-radius: 5px;
+    color: white;
+    height: 50px;
+    width: 50px;
+}
+.sign {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    border-radius: 0 0 5px 5px;
+    font-size: 0.8125rem; /* 13/16 하면 13px/16px이다 */
+}
+.sign::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.sign a::before{
+    content: '\e803';
+    color: rgb(241, 95, 16);
+    font-family: 'fontello';
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.signup {
+    float: left;
+}
+.find {
+    float: right;
+}
 .slogan{
     background-color: limegreen ;
 }
 .footer{
     background-color: violet;
 }
+

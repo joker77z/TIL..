@@ -1,7 +1,6 @@
-body{
-    color:red
-}
 div {
-    height:500px;
-    /* background-color: yellow; */
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+    margin-left:10px;
 }
