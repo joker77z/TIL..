@@ -1,4 +1,8 @@
 @import url('./fonts.css');
+
+/* 자료검색 만들 때 아이콘 추가 */
+@import url('./fontello.css');
+
 *, *::before, *::after{
     box-sizing: border-box;
 }
@@ -8,7 +12,6 @@ a {
 }
 /* 숨김 콘텐츠 */
 .a11y-hidden, legend{
-    background-color: red;
     position: absolute;
     /* 1. 위로튀어버리는 문제로 사용X */
     /* top: -9999em; */
@@ -30,11 +33,51 @@ body{
     font-weight: 400;
     margin: 0;
 }
+/* 바로가기 */
+/* FIXME: 안된다  */
+.skip-navigation {
+    position: fixed;
+    width: 100%;
+    background: #000;
+    text-align: center;
+    z-index: 10;
+}
+.skip-navigation a{
+    position: absolute;
+    padding: 15px;
+    color: #fff;
+    font-size: 0.875rem;
+    width: 1px;
+    height: 1px;
+    margin: -1px; 
+    /* clip: rect(0 0 0 0); */
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%); 
+    overflow: hidden;
+}
+.skip-navigation a:foucs {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: initial;
+    clip: initial;
+    clip-path: initial;
+    display: inline-block;
+    outline-offset: -10px;
+}
+
 .container{
     /* background: url(./images/bg_flower.png) no-repeat 50% 0 fixed; x축으로만 가운데 정렬, fixed는 스크롤 내렸을 때 배경이 고정되게 만들었다. */
     background: url(./images/bg_flower.png) no-repeat 50% 0,  linear-gradient(#ccc 0%,  #eee 35%, #eee 50%, #fff 100%);
     background-color: #999;
 }
+.button {
+    width: 100px;
+    height: 40px;
+    margin: 30px auto;
+}
+
 .header, .visual, .main, .slogan{
     width: 940px;
     margin: 0 auto;
@@ -78,7 +121,7 @@ body{
     font-size: 0.875rem;
     line-height: 1.15;
 }
-.member-service li:nth-child(n+3)::before {
+.member-service li:nth-child(n+2)::before {
     content: ":";
 }
 .member-service a {
@@ -246,7 +289,8 @@ body{
     margin: 0;
 }
 .main{
-    background-color: #e9c46a;
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
     display: flow-root;
     padding: 30px 15px;
     min-height: 750px;
@@ -260,12 +304,10 @@ body{
     width: 250px;
 }
 .group2{
-    background-color: olive;
     float: left;
     width: 380px;
 }
 .group3{
-    background-color: brown;
     float: left;
     width: 190px;
 }
@@ -408,8 +450,6 @@ body{
     margin: 0;
     font-size: 1rem; /* 글자 기본크기 16px. */
 }
-.term-list {
-}
 .term-list:after {
     content: "";
     clear: both;
@@ -464,6 +504,83 @@ body{
     float: left;
 }
 
+/* 2열 */
+/* .search {
+    background: lightgray linear-gradient(rgb(213, 213, 213), white);
+    border-radius: 10px 10px 0 0;
+    font-size: 15px;
+    text-align: center;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.search_detail {
+    padding: 16px 0 10px 0;
+}
+.search_text::before {
+    content: '\e802';
+    font-family: 'fontello';
+    font-weight: normal;
+    padding-right: 5px;
+}
+.search input {
+    border-radius: 2px 2px 2px 2px;
+    width: 180px;
+    height:24px;
+    margin: 0 10px 0 10px;
+}
+.search button {
+    background-color: black;
+    color: white;
+} */
+
+.search-form {
+    background: #ccc linear-gradient(#ccc, #eee);
+    padding: 15px 25px 10px 15px;
+    border: 1px solid #aaa;
+    border-bottom-color: white; /* 이 부분 배경이 흰색이어서 흰색 선으로 없애줌*/
+    border-radius: 15px 15px 0 0;
+    font-size: 0.875rem;
+}
+/* 전체 선택은 적절하지 않으나 시간상 전체 선택하기 위해 쓴다. */
+/* 중요하다. 가운데 정렬 */
+.search-form *{
+    vertical-align: middle;
+}
+.search-form fieldset {
+    /* fieldset 화면에 없는 것처럼 초기화 */
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.search-form label {
+    line-height: 1;
+}
+.search-form input {
+    /* webkit같은 접두사는 autoprefixer로 나중에 붙여줄 수 있다. */
+    appearance: none;
+    border: 1px solid #aaa;
+    height: 22px;
+    border-radius: 2px;
+    padding: 1px 1px 1px 5px;
+    margin:0 10px;
+    /* flex니까 다른걸로 길이를 늘려도 되지만 여기서는 고정할꺼라 width */
+    width: 199px;
+}
+/* clear버튼 없애주기 */
+/* .search-form input::-ms-clear{
+    display: none;
+} */
+.button-search {
+    border: 0;
+    padding: 0 10px ;
+    background: #000;
+    color: white;
+    /* 일반적으로는 패딩으로 하는게 좋으나 여기서는 그냥  높이 쓰겠다. 패딩이 유동적이라 좋다.*/
+    height: 22px;
+    font-size: 0.75rem;
+    border-radius: 2px;
+}
 /* 슬로건 */
 .slogan{
     background-color: limegreen ;

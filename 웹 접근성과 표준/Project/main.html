@@ -9,6 +9,11 @@
 </head>
 <body>
     <div class="container">
+      <!-- 본문바로가기 버튼 만들기 -->
+      <div class="skip-navigation">
+        <a href="#userEmail">본문 바로가기</a>
+      </div>
+      <!-- 여기까지-->
         <header class="header">
                 <h1 class="logo">
                     <a href="./index.html">
@@ -220,7 +225,20 @@
               </dl>
             </section>
             </div>
-            <div class="group group2">그룹2</div>
+            <div class="group group2">
+              <h2 class="a11y-hidden">검색</h2>
+              <form method="POST" action="https://formspree.io/seulbinim@gmail.com" class="search-form">
+                <fieldset>
+                  <legend>검색 폼</legend>
+                  <label for="search">
+                    <!-- 브라우저가 안읽겠지만 혹시 읽을까봐 aria-hidden 준다. -->
+                    <!-- icon-search는 아이콘 추가된 것 -->
+                    <span class="icon-search" aria-hidden="true"></span>
+                    자료검색</label><input type="search" id="search" name="search" required placeholder="검색어를 입력하세요"/>
+                  <button class="button-search" type="submit">검색</button>
+                </fieldset>
+              </form>
+            </div>
             <div class="group group3">그룹3</div>
             <div class="clearfix"></div>
         </main>
