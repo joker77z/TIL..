@@ -420,25 +420,48 @@ body{
 }
 .term-list-subject {
     width: 145px;
-    float: right;
+    float: left;
     color: #277684;
     line-height: 1;
     margin-bottom: 5px;
 }
 .term-list-brief {
     /* 업데이트 관점에서 margin-right보다 width가 낫다. */
+    font-size: 0.875rem; /* 14/16 해서 글자크기를 줄여준다. */
     width: 145px;
-    float: right;
+    float: left;
     line-height: 1.2;
 }
 .term-list-thumbnail {
-    float: left;
+    float: right;
 }
 .term-list-thumbnail img{
     vertical-align: top;
 }
+/* even */
+.term-list > div::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.term-list > div {
+    margin: 10px 0;
+}
+.term-list {
+    /* 과하게들어갔던 기본 마진 재정의 */
+    margin: 10px 0  0 0; 
+}
 .odd {
-    
+    margin-bottom: 10px;
+}
+.even .term-list-subject {
+    float: right;
+}
+.even .term-list-brief {
+    float: right;
+}
+.even .term-list-thumbnail {
+    float: left;
 }
 
 /* 슬로건 */
