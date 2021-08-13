@@ -78,7 +78,7 @@ body{
     font-size: 0.875rem;
     line-height: 1.15;
 }
-.member-service li:nth-child(n+2)::before {
+.member-service li:nth-child(n+3)::before {
     content: ":";
 }
 .member-service a {
@@ -91,14 +91,14 @@ body{
     padding-bottom: 55px;
 }
 .menu {
-    background-color: orange;
+    /* background-color: orange; */
     margin: 0;
     padding-left: 225px;
     list-style: none; /* list-style-type 단축 */
     height: 45px; /* 크기가 변동 될 가능성이 없는 컴포넌트라고 판단되서 높이 고정 */
     /* margin-bottom: 50px; >> navigation에 padding-bottom을 준다.*/
     box-shadow: 0 -2px 0 0 #000;
-    background-image: linear-gradient(-45deg, red 0, red 60%, green); /* 단색 60% 칠하고 그라디언트 */
+    background-image: linear-gradient(-45deg, red 0, red 60%, green);
     background: #ff8300 linear-gradient(to bottom, #ffb76b 1%,#ff8300 35%,#ff8300 70%,#ffb76b 100%);
     border-radius: 0 0 5px 5px;
 }
@@ -107,20 +107,6 @@ body{
     height: 100%;
     position: relative; /* 하위 메뉴를 위해 부모를 여기로 */
 }
-.menu-item.is-active .menu-button { /* 붙여써야 한다. */
-    color: #ff0; /* 부모한테 노란색을 줬지만 자식에서 흰색이 되서 cascading 된 것 */
-    /* border-bottom: 1px solid black; */
-    text-decoration: underline #000;
-    text-underline-offset: 15px;
-}
-.menu-item.is-active .menu-button::after { /* 붙여써야 한다. */
-    content:'';
-    display: block; /* 인라인이 아니라 블럭으로 해야 줄바꿈 */
-    /* border-top: 1px solid black; */
-    height: 2px;
-    background-color: #000;
-}
-
 .menu-button {
     cursor: pointer;
     border: 0;
@@ -134,6 +120,19 @@ body{
     font-size: 1.0625rem; /* 17/16 alt+cmd + y */
     text-shadow: -1px -1px 0 #000; /* 텍스트 쉐도우는 세번째 블러까지만 들어간다. */
     text-shadow: 1px 1px 0 #000; /* 텍스트 쉐도우는 세번째 블러까지만 들어간다. */
+}
+.menu-item.is-active .menu-button { /* 붙여써야 한다. */
+    color: #ff0; /* 부모한테 노란색을 줬지만 자식에서 흰색이 되서 cascading 된 것 */
+    /* border-bottom: 1px solid black; */
+    text-decoration: underline #000;
+    text-underline-offset: 15px;
+}
+.menu-item.is-active .menu-button::after { /* 붙여써야 한다. */
+    content:'';
+    display: block; /* 인라인이 아니라 블럭으로 해야 줄바꿈 */
+    /* border-top: 1px solid black; */
+    height: 2px;
+    background-color: #000;
 }
 /* 서브 메뉴 */
 .sub-menu {
@@ -250,7 +249,7 @@ body{
     background-color: #e9c46a;
     display: flow-root;
     padding: 30px 15px;
-    min-height: 450px;
+    min-height: 750px;
 }
 .group{
     margin: 0 15px;
@@ -379,7 +378,7 @@ body{
 }
 
 /* 웹 관련 용어 */
-.web-memo {
+/* .web-memo {
     padding: 10px;
     background-color: lightgray;
 }
@@ -394,6 +393,52 @@ body{
     content:'';
     display: block;
     clear: both;
+} */
+
+/* 웹 관련 용어 - float이용 */
+/* 연습2 */
+.term { /* 그라디언트 지원하지 않을때 fallback칼라 */
+    background: #ccc linear-gradient(#ccc, #eee);
+    border: 1px solid #aaa;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.term-heading {
+    margin: 0;
+    font-size: 1rem; /* 글자 기본크기 16px. */
+}
+.term-list {
+}
+.term-list:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.term-list dd {
+    margin-left: 0;
+}
+.term-list-subject {
+    width: 145px;
+    float: right;
+    color: #277684;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.term-list-brief {
+    /* 업데이트 관점에서 margin-right보다 width가 낫다. */
+    width: 145px;
+    float: right;
+    line-height: 1.2;
+}
+.term-list-thumbnail {
+    float: left;
+}
+.term-list-thumbnail img{
+    vertical-align: top;
+}
+.odd {
+    
 }
 
 /* 슬로건 */
