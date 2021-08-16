@@ -43,6 +43,7 @@ body{
     z-index: 10;
 }
 .skip-navigation a{
+    display: block;
     position: absolute;
     padding: 15px;
     color: #fff;
@@ -50,14 +51,13 @@ body{
     width: 1px;
     height: 1px;
     margin: -1px; 
-    /* clip: rect(0 0 0 0); */
     clip: rect(0 0 0 0);
     clip: rect(0, 0, 0, 0);
     clip-path: inset(50%); 
     overflow: hidden;
 }
 .skip-navigation a:foucs {
-    position: static;
+    position: fixed;
     width: auto;
     height: auto;
     margin: initial;
