@@ -581,6 +581,72 @@ body{
     font-size: 0.75rem;
     border-radius: 2px;
 }
+
+/* 공지사항 및 자료실 */
+.board {
+    margin-top: 20px;
+    position: relative;
+    height: 200px;
+}
+.board ul, .board .more{
+    display: none;
+}
+.is-active ul, .is-active .more {
+    display: block !important;
+}
+.board .tab {
+    position: absolute;
+    top: 0;
+    /* 그라디언트 지원방지 콜백 색상 정해주기  */
+    background: #ccc linear-gradient(to bottom, #ccc, #eee);
+    color: #666;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px 5px 0 0;
+    font-size: 0.875rem;
+}
+.is-active .tab {
+    background: #fff !important;
+    color: #e85b2c;
+    /* 아래쪽이 흰색선 */
+    border-color: #e85b2c #e85b2c #fff #e85b2c;
+}
+.notice .tab {
+    left: 0;
+}
+.pds .tab {
+    left: 69px;
+}
+.board ul {
+    padding: 35px 0 0 0;
+    list-style: none;
+    margin: 0;
+}
+.board li {
+    margin-top: 10px;
+    font-size: .875rem;
+    display: flex;
+}
+.board ul a {
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.board time {
+
+}
+.board .more {
+    position: absolute;
+    /* padding 넣은만큼 당겨준다. */
+    top: -8px;
+    right: -8px;
+    /* hover했을 때 넓게 클릭되게 */
+    padding: 8px;
+}
+.more .icon-plus {
+    color: hsla(110, 70%, 30%, 1);
+}
 /* 슬로건 */
 .slogan{
     background-color: limegreen ;

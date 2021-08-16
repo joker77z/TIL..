@@ -238,15 +238,16 @@
                   <button class="button-search" type="submit">검색</button>
                 </fieldset>
               </form>
+
               <div class="board">
                 <!-- 공지사항[o]/자료실[x] -->
-                <section class="notice">
+                <section class="notice is-active">
                   <h2 class="a11y-hidden" id="noticeHeading">공지사항</h2>
                   <!-- 길어지면 카밀케이스 식별이 어렵다. 과거에 많이 유용 카밀케이스.-->
                   <button type="button" class="tab">공지사항</button>
                   <ul class="notice-list">
                     <li>
-                      <a href="#">HTML의 모든 것을 알려주마 샘플 활용법</a>
+                      <a class="icon-dot-circled" href="#">HTML의 모든 것을 알려주마 샘플 활용법</a>
                       <!-- datetime을 getattribute로 잘 이용한다. -->
                       <time datetime="2021-08-16T15:45:30">2021.08.16</time>
                     </li>
@@ -271,7 +272,7 @@
                   <!-- aria-labelledby에 공지사항 더보기 링크. 이렇게 이어주는 것. -->
                   <!-- 링크의 목적을 식별할 수 있도록 충족! -->
                   <!-- a링크에 more줘서 태그선택자로 접근안하고 위치하게 -->
-                  <a class="more" href="#" aria-labelledby="noticeHeading"><span class="icon icon-plus" aria-hidden="true">더보기</span</a>
+                  <a class="more" href="#" aria-labelledby="noticeHeading"><span class="icon icon-plus" aria-hidden="true"></span>더보기</a>
                 </section>
 
 
@@ -301,7 +302,7 @@
                       <time datetime="2021-08-12T13:53:45">2021.08.12</time>
                     </li>
                   </ul>
-                  <a class="more" href="#" aria-labelledby="pdsHeading"><span class="icon icon-plus" aria-hidden="true">더보기</span</a>
+                  <a class="more" href="#" aria-labelledby="pdsHeading"><span class="icon icon-plus" aria-hidden="true"></span>더보기</a>
                 </section>
 
 
