@@ -37,7 +37,7 @@ https://joker77z.github.io/
 
 ### html
 - [210717 / Html naver login page structure analysis](https://github.com/joker77z/TIL2/blob/main/html/210717-html-naver-structure.md)
-- [210809 / Html theory, how to make structure](http://localhost:4000/2021/08/09/HTMLCSS/htmlcss_1%EC%9D%BC%EC%B0%A8_%EC%9D%B4%EB%A1%A0/)
+- [210809 / Html 기본 이론과 구조](http://localhost:4000/2021/08/09/HTMLCSS/htmlcss_1%EC%9D%BC%EC%B0%A8_%EC%9D%B4%EB%A1%A0/)
 
 ### Algorithm
 - [210720 / 중복문자제거](https://github.com/joker77z/TIL2/blob/main/algorithm/javascript/basic/1.%20%EC%A4%91%EB%B3%B5%EB%AC%B8%EC%9E%90%EC%A0%9C%EA%B1%B0.js)
