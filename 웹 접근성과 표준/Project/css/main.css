@@ -745,7 +745,7 @@ body{
     box-shadow: 5px 5px 0 0 #aaa;
 }
 .event-brief {
-    margin: 10px 0 0 0;
+    margin: 10px 0 10px 0;
 }
 .event-brief em{
     font-style: normal;
@@ -769,17 +769,44 @@ body{
 .event-button-next {
     background-position: -35px 0;
 }
+.related {
+    font-size : 0.875rem;
+    border-top: 1px solid #aaa;
+}
 .related-heading {
-    margin: 0 0 10px;
+    margin: 10px 0;
     font-weight: 700;
     font-size: 0.9375rem;
 }
-.related ul{
-    list-style-type: none;
-    margin: 0;
-}
 .related-list {
-    padding: 0;
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    height: 27px;
+    overflow: hidden;
+    /* 시간을 두번 넣으면 뒤에는 delaytime */
+    /* transition: height 400ms 400ms, background-color 400ms 800ms, padding 400ms 0ms; */
+    transition: height 400ms;
+}
+.related-list a {
+    /* 중간위치 */
+    line-height: 25px;
+    display: block;
+    /* 블럭일때만 쓸 수 있다. */
+    text-indent: 1.5em;
+}
+.related-list a:focus {
+    /* 아웃라인 줄이기 */
+    outline-offset: -1px;
+}
+.related-list:hover{
+    /* 애니메이션은 리밋이 있어야되서 auto로 하면 안된다. */
+    height: 147px;
+    padding: 10px 0;
+    background-color: pink;
 }
 
 
