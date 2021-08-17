@@ -10,9 +10,9 @@ https://joker77z.github.io/
 
 ## 분류
 ### Javascript
-- [210716 / Javascript 기초](https://github.com/joker77z/TIL/blob/main/javascript/210716-javascript-basic1.md)
+- [210716 / Javascript 기초](https://github.com/joker77z/TIL2/blob/main/javascript/210716-javascript-basic1.md)
   - 변수와 상수, 연산자, 조건문, 함수, 템플릿 리터럴, 화살표 함수, 객체, 구조 분해 할당
-- [210719 / Javascript 기초](https://github.com/joker77z/TIL/blob/main/javascript/210718-javascript-basic2.md)
+- [210719 / Javascript 기초](https://github.com/joker77z/TIL2/blob/main/javascript/210718-javascript-basic2.md)
   - 배열, 반복문
 - [210719 / Javascript 객체](https://github.com/joker77z/TIL/blob/main/javascript/210718-javascript-object.md)
 - [210720 / Javascript 배열 내장 함수](https://github.com/joker77z/TIL/blob/main/javascript/210720-javascript-arrayfunc.md)
