@@ -307,6 +307,45 @@
 
 
               </div>
+
+              <!-- 인라인 요소가 블럭을 포함. a 트랜스페이런트 모델. 개발편의성으로 추가된 기능이라고도 볼 수 있다. HTML5에서!
+              HTML5에서 인라인.
+              실사용자는 불편하다. 가능하지만 이런 패턴 좋지 않다.
+              a로 감싸면 파이어폭스에서 일직선으로 나온다? 
+              ❗️ a에 display block해야 된다 중요!
+            -->
+
+              <!-- 새소식 -->
+              <section class="news">
+                <!-- id로 news를 줬지만 section class와 다른거다. -->
+                <h2 class="news-heading" id="news">새소식</h2> 
+                <a href="#" class="news-link">
+                  <article class="news-article">
+                    <!-- 네이밍 힘들다. CSS모듈 패턴 쓴다. 리액트하면 모듈 더 쉽게하는 법 배운다. CSS모듈 유니크한 클래스 만들어준다.-->
+                    <h3 class="news-article-subject">
+                      W3C 사이트가 리뉴얼 되었습니다.
+                    </h3>
+                    <!-- time 속성 내부에 생일 이렇게 쓰면 datetime이 생일을 의미할 수도 있다. -->
+                    <time class="news-article-date" datetime="2021-08-17">2021.08.17</time>
+                    <p class="news-article-brief">
+                      디자인 및 다양한 view 환경을 고려하여 구성되어 있으며,
+                      기존보다 최신 정보 및 개발자를 위한 기술 가이드도
+                      찾기 쉽도록 구성되어 있습니다.
+                    </p>
+                    <figure class="news-article-thumbnail">
+                      <!-- seo관점에서 포기한 상황. seo를 위해서는 대체텍스트 줘야함. -->
+                      <!-- <img src="./assets/news.gif" alt="" aria-labelledby="thumbnailCaption">
+                      <figcaption id="thumbnailCaption">WEC 리뉴얼</figcaption> -->
+                      <!-- 접근이 불가능한건아니고 불편할 수 있다. 상세하게 준다면 아래와 같이 가능하다. -->
+                      <img src="./assets/news.gif" alt="W3C가 HTML5를 발표하면서 새롭게 개편한 메인 페이지">
+                      <figcaption>W3C 리뉴얼</figcaption>
+                    </figure>
+                  </article>
+                </a>
+                <a href="#" class="more" aria-labelledby="news"><span class="icon icon-plus"></span>더보기</a>
+              </section>
+              <!-- 새소식 끝 -->
+
             </div>
             <div class="group group3">그룹3</div>
             <div class="clearfix"></div>
