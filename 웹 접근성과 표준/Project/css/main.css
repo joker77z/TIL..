@@ -672,6 +672,7 @@ body{
 }
 .news-link {
     display: block;
+    /* 파이어폭스 옛날깨지는거 방지 */
 }
 .news-article {
     font-size: 0.875rem;
@@ -715,6 +716,72 @@ body{
     right:-8px;
     padding: 8px;
 }
+
+/* 신규이벤트 및 관련 사이트 */
+/* 이건 재사용이 가능하다. */
+.gradient-box{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: #ccc linear-gradient(#ccc, #eee);
+    padding: 10px;
+    position: relative;
+}
+.accent-color {
+    color: orangered;
+} 
+.event {
+    font-size: 0.875rem;
+}
+.event-heading {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+.event-thumbnail {
+    margin: 10px 0 0 0;
+}
+.event-thumbnail img{
+    border: 1px solid #aaa;
+    box-shadow: 5px 5px 0 0 #aaa;
+}
+.event-brief {
+    margin: 10px 0 0 0;
+}
+.event-brief em{
+    font-style: normal;
+}
+.event-button-group {
+    height: 18px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.event-button-group button {
+    width: 19px;
+    height: 0;
+    border: 0;
+    /* position을 준적이 없으니까 cascade가 안된다. 개별속성을 써야 된다. */
+    background-image: url("./images/back_forward.png");
+    background-repeat: no-repeat;
+    padding: 18px 0 0 0;
+}
+.event-button-next {
+    background-position: -35px 0;
+}
+.related-heading {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+.related ul{
+    list-style-type: none;
+    margin: 0;
+}
+.related-list {
+    padding: 0;
+}
+
 
 
 /* 슬로건 */
