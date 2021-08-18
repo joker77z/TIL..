@@ -78,7 +78,7 @@ body{
     margin: 30px auto;
 }
 
-.header, .visual, .main, .slogan{
+.header, .visual, .main, .slogan, .footer{
     width: 940px;
     margin: 0 auto;
 }
@@ -292,7 +292,7 @@ body{
     border-radius: 15px 15px 0 0;
     display: flow-root;
     padding: 30px 15px;
-    min-height: 750px;
+    min-height: 550px;
 }
 .group{
     margin: 0 15px;
@@ -946,7 +946,50 @@ body{
 }
 
 
-.footer{
-    background-color: violet;
+.footer-bg{
+    background: linear-gradient(to bottom, #ccc, #eee 60%, #fff 100%);
 }
-
+.footer {
+    padding: 10px 100px 10px 180px;
+    position: relative;
+    font-size: 0.875rem;
+}
+.footer-logo {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+.guide-list {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-radius: 20px;
+    background: #7b8385;
+    color: #fff;
+    text-transform: uppercase;
+}
+.guide-list li {
+    /* a영역을 구별할 수 있다. 탭으로도 구별 가능.*/
+    padding: 2px 0;
+}
+.guide-list a {
+    /* 밑에 공백을 없애는데 사용, padding 줄 수 있다. */
+    /* li에 안주고 a에서 다 조율해줄 수 있다. */
+    display: block;
+    padding: 7px 10px;
+}
+.address {
+    font-style: normal;
+    margin: 15px 0 5px;
+}
+.copyright {
+    font-size: 1em;
+}
