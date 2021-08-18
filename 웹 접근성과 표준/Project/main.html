@@ -379,10 +379,35 @@
                   </ul>
                 </section>
               </div>
+
+              
+              <!-- 랭킹 -->
+              <section class="gradient-box favorite">
+                <h2 class="favorite-heading" id="favorite">인기 <span class="accent-color">사이트</span></h2>
+                <ol class="favorite-list">
+                  <li class="no1"><a href="#">W3C</a><em class="up">상승</em></li>
+                  <li class="no2"><a href="#">Web Standards</a><em class="down">하락</em></li>
+                  <li class="no3"><a href="#">CSS ZenGarden</a><em class="stop">멈춤</em></li>
+                  <li class="no4"><a href="#">Zero base</a><em class="up">상승</em></li>
+                </ol>
+                <a href="#" class="more" aria-labelledby="favorite"><span class="icon icon-plus"></span>더보기</a>
+              </section>
+              <!-- 랭킹 끝 -->
+
             </div>
             <div class="clearfix"></div>
         </main>
-        <article class="slogan">슬로건</article>
+        <article class="slogan">
+          <!-- h2는 슬로건 글자는 안보이고 커피잔이미지보이게 -->
+          <h2 class="slogan-heading" title="웹카페에서 웹표준을..">슬로건</h2>
+          <p class="slogan-content">
+            <q [cite="https://w3.org/WAI"]>
+              The power of the Web is in its universality, Access by everyone regardless of disability is an essential aspect.
+            </q>
+            <span>Tim Berners - Lee , W3C Director and inventor of the World Wide Web</span>
+          </p>
+          <footer class="a11y-hidden">출처 : W3C, http://w3.org/WAI</footer>
+        </article>
         <footer class="footer">푸터</footer>
     </div>
     <script src="./js/main.js"></script>
