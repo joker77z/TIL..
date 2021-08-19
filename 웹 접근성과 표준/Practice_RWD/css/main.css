@@ -1,0 +1,51 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css);
+@import url(./reset.css);
+/* 노멀라이즈 다음에 리셋을 불러야 된다. */
+
+:root {
+    --gray: #E8F0F2;
+    --tomato: #CD5C5C;
+    --coral: #ED8E7C;
+    --green: #CDF3A2;
+    --violet: #9B72AA;
+    --pink: #FFC0CB;
+    --yellow: #FFE194;
+    --blue: #77ACF1;
+    --cyan: #4CA1A3;
+}
+.container {
+    background-color: var(--gray);
+}
+.header {
+    background-color: var(--pink);
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+
+/* 모바일 =================================*/
+@media screen and (max-width: 767px) {
+    .header {
+        justify-content: space-between;
+    }
+    /* button눌렀을 때 나오는 메뉴리스트 */
+    .navigation {
+        /* display임시 none */
+        display: none;
+        background-color: var(--blue);
+        /* static위에 fixed가 올라가서 배경이 겹쳐진다 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* 가로크기도 100vw써도 된다. 100%도 상관없음 */
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+/* 태블릿 이상 PC까지 ==============================*/
+@media screen and (min-width: 768px) {
+    .button-open-menu, .button-close-menu {
+        display: none;
+    }
+}

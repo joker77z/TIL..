@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>음료 소개 - 이디야 커피</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header" role="banner">
+            <h1 class="brand">
+                <a href="#">
+                    <!-- 내 맥북에서는 2배율 아이폰 최신에서는 3배율 그런식으로 srcset으로만들어내라. -->
+                    <!-- IE에서 지원안되니까 마지막에 src넣어주기-->
+                    <img srcset="./images/ediya-logo.png 1x, 
+                    ./images/ediya-logo@2x.png 2x, 
+                    ./images/ediya-logo@3x.png 3x"
+                    src="./images/ediya-logo.png" alt="EDIYA COFFEE"
+                    alt="">
+                </a>
+            </h1>
+            <!-- button type을 넣어준다. -->
+            <!-- 스크린 리더기를 위해 aria-label로 메뉴 열기를 준다. -->
+            <!-- 보조기기는 label을 먼저 읽는다. 근데 사람들이 마우스 올렸을 떄 보조설명으로 메뉴 열기도 나온다. -->
+            <button type="button" class="button button-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+                <!-- 텍스트는 이미 label로 처리해서 감췄다. -->
+                <span class="ir"></span>
+            </button>
+
+            <!-- 모바일에서 접근성을고려해서 button으로 X표시가 메뉴 마지막에 도착할 수 있게 한다. -->
+        <!-- aria-label="메인 메뉴" 넣어줘도 되고 우리가 배운 방법으로는 h2 a11y-hidden방법이 있다. -->
+        <!-- 여기서 nav대신 div를 넣어보자. 대신 role에 내비게이션 넣기 -->
+        <div class="navigation is-active role="navigation">
+            <h2 class="a11y-hidden">메인 메뉴</h2>
+            <ul class="reset-list">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">이디야 디자인</a></li>
+                <li><a href="#">이디야 음료</a></li>
+                <li><a href="#">이디야 뉴스</a></li>
+                <li><a href="#">매장 찾기</a></li>
+            </ul>
+            <!-- 얘는 close역할만 하는 버튼 위 버튼은 open만 -->
+            <!-- X모양 대신에 메뉴 닫기라고 알려줄 수 있어야 한다.  -->
+            <button class="button button-close-menu" type="button" aria-label="메뉴 닫기">
+                <!-- X표시는 영어가 아니라 곱하기 표시다.
+                    텍스트니까 이미지가 아니라 해상도 이슈, 칼라 수정가능 CSS조절이 자유롭다. 
+                    아이콘 이미지가 무조건 능사가 아니다. 스크린리더에서 안읽게 aria-hidden="true"를 넣는다.
+                -->
+
+                <!-- 다해봤으면 문법검사 무조건해봐라! -->
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        </div>
+
+
+
+
+        
+
+
+        <div class="main" role="main">메인 콘텐츠</div>
+        <div class="footer a11y-hidden" role="contentinfo"></div>
+    </div>
+</body>
+</html>
