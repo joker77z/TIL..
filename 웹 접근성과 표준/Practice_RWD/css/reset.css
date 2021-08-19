@@ -1,3 +1,6 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 .reset-box {
     margin: 0;
     padding: 0;
@@ -16,9 +19,36 @@
     clip-path: polygon(0 0, 0 0, 0 0);
     overflow: hidden;
 }
+h1, h2, h3, h4 {
+    /* 밑에 다 똑같다. */
+    /* font-size: 1em; */
+    font-size: 100%;
+    /* font: inherit; */
+}
 
 /* a링크 밑줄없이 색상 똑같이가기 */
 a {
     color: inherit;
     text-decoration: none;
+}
+a::focus {
+    outline-offset: -2px;
+}
+
+.fullsize-max {
+    max-width: 100%;
+    /* 생략해도됌 */
+    height: auto;
+}
+/* 이 예제에서는 비디오가 없긴 하지만 나중에 비디오가 메인에 들어간다.fullsize-max
+비디오에 들어갈 용도. */
+.fullsize {
+    width: 100%;
+    /* 생략해도됌 */
+    height: auto;
+}
+/* button클래스를 썼을 때 > 꾸미겠다는 얘기 */
+.button {
+    cursor: pointer;
+    border: 0;
 }

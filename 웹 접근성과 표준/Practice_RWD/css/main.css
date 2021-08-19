@@ -3,30 +3,78 @@
 /* 노멀라이즈 다음에 리셋을 불러야 된다. */
 
 :root {
-    --gray: #E8F0F2;
+    --gray: #E0E0E0;
     --tomato: #CD5C5C;
     --coral: #ED8E7C;
     --green: #CDF3A2;
     --violet: #9B72AA;
     --pink: #FFC0CB;
     --yellow: #FFE194;
-    --blue: #77ACF1;
+    --blue: #2e437c;
     --cyan: #4CA1A3;
 }
 .container {
-    background-color: var(--gray);
+    /* background-color: var(--gray); */
+    
 }
 .header {
-    background-color: var(--pink);
+    /* background-color: var(--pink); */
     display: flex;
     flex-flow: row nowrap;
+    /* 수직 가운데 정렬 */
+    align-items: center;
 }
-
-
+/* 헤더 */
+.header {
+    /* background-color: var(--pink); */
+    display: flex;
+    flex-flow: row nowrap;
+    /* 패딩때문에 header는 늘어나서 height 지워도 된다. */
+    /* height: 50px; */
+}
+/* 브랜드 로고*/
+.brand {
+    /* font-size 아까 2배였기 때문에 1em으로 해놨다. */
+    font-size: 1em;
+    /* background-color: var(--yellow); */
+    /* 140/375; => 양쪽에 패딩이 포함된 값이어야 되니까 36+140 = 176/375*/
+    width: 46.93333333333333%;
+    /* 이 이상으로는 안늘어나게 하겠다. */
+    max-width: 200px;
+}
+.brand a{
+    /* block으로해도 됌 */
+    display: inline-block;
+    /* padding: 18px/16px; */
+    padding: 1.125rem;
+}
+.header-conatiner {
+    border-bottom: 1px solid var(--gray);
+}
 /* 모바일 =================================*/
 @media screen and (max-width: 767px) {
     .header {
         justify-content: space-between;
+    }
+    .header .button-open-menu {
+        user-select: none;
+        padding: 0;
+        /* background-color: var(--green); */
+    }
+    /* 벌써 구체성점수가30점 나중에 30점 이상해야 속성바꿀 수 있게 되는데
+    그래서 요즘 BEM네이밍 패턴 선호. 클래스이름 하나로 선택하기편하게. */
+    .header .button-open-menu .ir {
+        /* span은 크기를 가질 수 없으니 */
+        display: block;
+        /* width: 50px;
+        height: 50px; */
+        /* 50/16 */
+        width: 3.125rem;
+        height: 3.125rem;
+        /* 벡터이미지니까 하나만 가도 된다. */
+        /* png를 사용하면 2배일 때, 1배일 떄 고려해야한다. */
+        background-image: url(./../images/button-navigation.svg);
+        background-repeat: no-repeat;
     }
     /* button눌렀을 때 나오는 메뉴리스트 */
     .navigation {
@@ -43,9 +91,39 @@
     }
 }
 
+
 /* 태블릿 이상 PC까지 ==============================*/
 @media screen and (min-width: 768px) {
+    .header {
+        /* background-color: var(--pink); */
+        /* 1920보다 1280유저가 더 많다. 근데80정도 스크롤바40, 양사이트 여유줘서 1200px. or  */
+        max-width: 1200px;
+        /* 가운데 정렬 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .brand {
+        /* 180/768 */
+        /* margin-right: 23.4375%; */
+        margin-right: auto;
+    }
     .button-open-menu, .button-close-menu {
         display: none;
+    }
+    .navigation ul {
+        display: flex;
+        flex-flow: row nowrap;
+    }.navigation li {
+        /* 8/16 */
+        margin-left: 0.5rem;
+    }
+    .is-selected {
+        font-weight: 700;
+    }
+    .navigation a {
+        color: var(--blue);
+        display: block;
+        /* 14/16 */
+        padding: 0.875rem 0;
     }
 }
