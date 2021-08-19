@@ -8,7 +8,7 @@
     align-content: flex-start;
 }
 .header, .navigation, .main, .footer {
-    /* basis 비율에 따라 문제 생겨서 with주  */
+    /* basis 비율에 따라 문제 생겨서 with준다.  */
     width: 100%;
     /* 스트레치됬다? */
     min-height: 10vh;
