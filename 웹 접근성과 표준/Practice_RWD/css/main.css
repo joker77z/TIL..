@@ -1,3 +1,4 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css);
 @import url(./reset.css);
 /* 노멀라이즈 다음에 리셋을 불러야 된다. */
@@ -12,6 +13,12 @@
     --yellow: #FFE194;
     --blue: #2e437c;
     --cyan: #4CA1A3;
+
+    /* 변수가 변수에 재할당. 우리페이지에 대표 칼라라고 정하는 것 */
+    --primary: var(--blue);
+}
+body {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 .container {
     /* background-color: var(--gray); */
@@ -59,7 +66,7 @@
     .header .button-open-menu {
         user-select: none;
         padding: 0;
-        /* background-color: var(--green); */
+        background-color: #fff;
     }
     /* 벌써 구체성점수가30점 나중에 30점 이상해야 속성바꿀 수 있게 되는데
     그래서 요즘 BEM네이밍 패턴 선호. 클래스이름 하나로 선택하기편하게. */
@@ -75,12 +82,22 @@
         /* png를 사용하면 2배일 때, 1배일 떄 고려해야한다. */
         background-image: url(./../images/button-navigation.svg);
         background-repeat: no-repeat;
+        transition: all 300ms ease;
     }
+
+    /* 포커스갔을 때 색 바꾸게 */
+    .header .button-open-menu:hover .ir {
+        background-color: #f5f5f5;
+        /* x, y는 그대로 블러랑 스프레드 */
+        box-shadow: 0 0 1px 1px #eee;
+    }
+
     /* button눌렀을 때 나오는 메뉴리스트 */
     .navigation {
         /* display임시 none */
-        display: none;
-        background-color: var(--blue);
+        /* >> 작업을 위해 다시 none을 주석처리 */
+        /* display: none; */
+        background-color: hsla(225, 57%, 10%, 0.9);
         /* static위에 fixed가 올라가서 배경이 겹쳐진다 */
         position: fixed;
         top: 0;
@@ -88,6 +105,48 @@
         /* 가로크기도 100vw써도 된다. 100%도 상관없음 */
         width: 100%;
         height: 100vh;
+        color: #fff;
+        /* 멀리 띄어지게. 정확한 값 필요없음. */
+        padding-top: 3.5rem;
+        /* X눌렀을 때 안보이게 */
+        transform: translateX(105%);
+        /* transform: translateX(5vw); */
+        transition: all 400ms ease;
+    }
+    .navigation.is-active {
+        transform: translateX(0);
+    }
+    .navigation a {
+        display: block;
+        padding: 1rem;
+        transition: all 400ms ease-in-out;
+    }
+    .navigation a:hover, .navigation a:focus {
+        /* 배경색 전환을 부드럽게하고싶다면 또 마우스를 올리는 대상에게 준다. 위! */
+        background-color: var(--primary);
+    }
+    .navigation li {
+        /* 색상채도명도알파값 */
+        border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
+    }
+    .button-close-menu {
+        position: absolute;
+        top: 0.625rem;
+        right: 0.625rem;
+        /* 20/16 */
+        padding: 0.5rem;
+        /* 글자 색 상속받기 */
+        color: inherit;
+        /* 버튼 배경색 */
+        background-color: transparent;
+        
+        transition: all 400ms ease-in-out;
+    }
+    /* 모바일에서 작동하지 않는다. */
+    .button-close-menu:hover,
+    .button-close-menu:focus {
+        /* 호버나 포커스되기 전에 걸어주면 된다. 1에서 1.2로 전이되는거니까 */
+        transform: scale(1.5);
     }
 }
 
