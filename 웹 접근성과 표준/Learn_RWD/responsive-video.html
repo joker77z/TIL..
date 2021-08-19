@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 미디어(video 요소)</title>
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <h1>반응형 미디어(video 요소)</h1>
+    <figure>
+        <!-- iframe은 바로 들어오면 안된다. div로 묶어준다.-->
+        <!-- iframe16, iframe4 이런식으로 비율을 적어준다. -->
+        <div class="iframe-container iframe16">
+            가로는 늘어났는데 세로 안늘어남.
+            <iframe class="fullsize"
+            src="https://www.youtube.com/embed/2DEDNW5Jq4Q" 
+            aria-label="김연아 경기 영상" 
+            frameborder="0" 
+            allowfullscreen></iframe>
+        </div>
+    </figure>
+</body>
+</html>
+
+<!-- 0.5625
+0.5625 -->

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 미디어(picture 요소)</title>
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <h1>반응형 미디어(picture 요소)</h1>
+    <!-- img태그가 아니라 picture태그 사용 -->
+    <!-- picture은 figure안에 있어야 한다. -->
+    <figure>
+        <picture>
+            <!-- img랑 같이 있어야 picture구동된다. -->
+            <!-- 디바이스 해상도에 따라 1배율이냐 2배율이냐에 따라 다른 이미지. -->
+            <!-- 레티나 2배율이 보여야되고 윈도우 1배율이 보일꺼다. -->
+            <!-- 767까지만 이 이미지가 보인다는 소리 -->
+            <source srcset="./images/banner-narrow.jpg 1x, ./images/banner-narrow@2x.jpg 1x" media="(max-width: 767px)"/>
+            <source srcset="./images/banner-wide.jpg 1x, ./images/banner-wide@2x.jpg 1x" media="(min-width: 1000px)"/>
+            <!-- 콜백. 지원하지 않을 때 img로 나타내줘라. -->
+            <!-- 767~999까지는 아래가 나타날 것. -->
+            <img class="fullsize-max" src="./images/banner-wide.jpg" alt="">
+        </picture>
+    </figure>
+</body>
+</html>

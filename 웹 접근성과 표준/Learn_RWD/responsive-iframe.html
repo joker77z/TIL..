@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 미디어(iframe 요소)</title>
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <h1>반응형 미디어(iframe 요소)</h1>
+    <figure>
+        <!-- <video class="fullsize" src="./video/stories.mp4"></video> -->
+        <!-- 비디오 크로스브라우징 이슈 mp4를 지원하지 않으면 mov를. mov를 안지원하면 ogg. -->
+        <!-- 지금은 대부분 mp4를 지원한다. -->
+
+        <!-- 반응형에서 video에 클래스를 주는 것 기억하자. -->
+        <!-- 실무에서는 iframe방식많이 쓴다. 영상, 지도 -->
+        <video class="fullsize" poster="./video/poster.jpg">
+            <source src="./video/Google Developer Stories.mp4" type="video/mov">
+            <source src="./video/Google Developer Stories.mov" type="video/mov">
+            <source src="./video/Google Developer Stories.ogg" type="video/mov">
+            <source src="./video/Google Developer Stories.webm" type="video/mov">
+            <!-- 자막선언  -->
+            <track src="./video/google-developer-stories-subtitles-en.vtt" kink="captions" srclang="en" label="english caption" />
+        </video>
+    </figure>
+</body>
+</html>

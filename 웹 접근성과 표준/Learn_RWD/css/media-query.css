@@ -1,0 +1,62 @@
+@import url(./base.css);
+/* 공통 */
+.conatiner {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 100vh;
+    /* 위에붙여주기 */
+    align-content: flex-start;
+}
+.header, .navigation, .main, .footer {
+    /* basis 비율에 따라 문제 생겨서 with주  */
+    width: 100%;
+    /* 스트레치됬다? */
+    min-height: 10vh;
+}
+.header {
+    background-color: var(--yellow);
+}
+.navigation {
+    background-color: var(--pink);
+}
+.main {
+    background-color: var(--blue);
+}
+.content {
+    background-color: var(--coral);
+}
+.sidebar {
+    background-color: var(--violet);
+}
+.footer {
+    background-color: var(--tomato);
+}
+/* 모바일 */
+@media screen and (max-width: 767px) {
+    
+}
+/* 데스크탑 */
+@media screen and (min-width: 768px) {
+    .container {
+        /* 최대값 걸어주기. 만약에 브라우저 축소하게되면 외부 흰색 영역된다. */
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .main {
+        display: flex;
+        /* height: 200px; */
+        /* 100vh - 70vh = 30vh만큼 늘어난다. */
+        flex-grow: 1; 
+        /* 다시 행방향 정렬 */
+        display: flex;
+        flex-flow: row nowrap;
+        /* 사이드바 오른쪽에 배치 */
+        justify-content: space-between;
+    }
+    .content{
+        width: 78.125%;
+    }
+    .sidebar {
+        width: 19.53125%;
+    }
+}

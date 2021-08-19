@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 미디어(img 요소)</title>
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <h1>반응형 미디어(img 요소)</h1>
+    <!-- 좋은 점: 래핑이 항상 필요하다.
+    현업에서는 span, div많이 쓴다.
+    우리는 시멘틱 유지하면서 반응형 하기위해 figure사용 -->
+    <!-- 테스트단계라 대체텍스트 생략 -->
+    <figure>
+        <img class="fullsize-max" src="./images/lezhin-wide.webp" alt="">
+        <!-- figcaption있으면 좋지만 지금은 생략 -->
+    </figure>
+    <!-- 모든 브라우저가 지원할 것. -->
+    <!-- 꼼수로 src쓰고 ㅣㄹㅇ크쓰고 srcset으로 바꿔라. -->
+    <!-- IE에서 확인해보면 이 아래꺼만 나올꺼다. -->
+    <img srcset="./images/lezhin-wide.webp" src="./images/medium-1024.jpg" alt="" class="fullsize-max">
+</body>
+</html>
