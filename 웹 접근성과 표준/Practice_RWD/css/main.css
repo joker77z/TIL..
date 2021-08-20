@@ -5,6 +5,9 @@
 
 :root {
     --gray: #E0E0E0;
+    
+    /* 전체칠해질 배경색상 */
+    --silver: #f5f5f5;
     --tomato: #CD5C5C;
     --coral: #ED8E7C;
     --green: #CDF3A2;
@@ -13,6 +16,8 @@
     --yellow: #FFE194;
     --blue: #2e437c;
     --cyan: #4CA1A3;
+    --black: #0f0f0f;
+    --black2: #464646;
 
     /* 변수가 변수에 재할당. 우리페이지에 대표 칼라라고 정하는 것 */
     --primary: var(--blue);
@@ -58,6 +63,57 @@ body {
 .header-conatiner {
     border-bottom: 1px solid var(--gray);
 }
+.ediya-menu {
+    background-color: yellow;
+    /* 방법1 음료영역차지 면적 */
+    /* 339/375 */
+    /* 90.4% */
+    
+    /* 방법2 여백을 빼고 */
+    /* 18/16 */
+    /* 양쪽 여백을 하고 채우는것도 나쁘지 않다. */
+    /* 1.125rem */
+    display: flex;
+    flex-flow: row wrap;
+    /* 사이사이에만 gap넣기 */
+    gap: 1.125rem;
+}
+.ediya-menu__item {
+    background-color: pink;
+    /* 확대도 되고 축소도 된다. 기본이 되는크기 40% */
+    flex: 1 1 40%;
+}
+.ediya-menu__item a{
+    /* 초점같은 문제 방지 */
+    display: block;
+    /* figure에 해도되고 a해서 상속되게 해도 된다. */
+    background-color: var(--silver);
+    color: var(--black2);
+}
+.ediya-menu__item figure {
+    margin: 0;
+    display: flex;
+    padding-top: 1.125rem;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.ediya-menu__item img {
+    /* 크기를 좀 줄일 것. 15%줄인다. */
+    transform: scale(0.85);
+    transition: all 400ms ease;
+    /* 이미지에서 범위잡는거 방지 */
+    -webkit-user-select: none;
+    user-select: none;
+}
+.ediya-menu__item figcaption {
+    /* 45/16 */
+    margin-bottom: 2.812rem;
+}
+.ediya-menu__item a:hover img {
+    transform: scale(1);
+}
+
 /* 모바일 =================================*/
 @media screen and (max-width: 767px) {
     .header {
@@ -148,6 +204,11 @@ body {
         /* 호버나 포커스되기 전에 걸어주면 된다. 1에서 1.2로 전이되는거니까 */
         transform: scale(1.5);
     }
+
+
+    .ediya-drink {
+        padding: 1.125rem;
+    }
 }
 
 
@@ -184,5 +245,10 @@ body {
         display: block;
         /* 14/16 */
         padding: 0.875rem 0;
+    }
+
+    .ediya-drink {
+        /* 30/16 */
+        padding: 1.875rem 1.125rem;
     }
 }
