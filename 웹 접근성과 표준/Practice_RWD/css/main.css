@@ -81,21 +81,14 @@ body {
     background-color: pink;
     /* 확대도 되고 축소도 된다. 기본이 되는크기 40% */
     flex: 1 1 40%;
-    /* position: relative; */
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    position: relative;
 }
 .ediya-menu__item a{
     /* 초점같은 문제 방지 */
     display: block;
     /* figure에 해도되고 a해서 상속되게 해도 된다. */
-    background-color: var(--silver);
+    background-color: var(--gray);
     color: var(--black2);
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
 }
 .ediya-menu__item figure {
     margin: 0;
@@ -107,7 +100,7 @@ body {
 }
 .ediya-menu__item img {
     /* 크기를 좀 줄일 것. 15%줄인다. */
-    /* transform: scale(0.85); */
+    transform: scale(0.85);
     transition: all 400ms ease;
     /* 이미지에서 범위잡는거 방지 */
     -webkit-user-select: none;
@@ -119,20 +112,93 @@ body {
     margin-bottom: 2.812rem;
 }
 .ediya-menu__item a:hover img {
-    /* transform: scale(1); */
+    transform: scale(1);
 }
 
 .ediya-menu__item--detail {
-    background-color: var(--coral);
-    /* position: absolute;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; */
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2
+    height: 100%;
+    border: 1px solid var(--gray);
+    /* 30px -> 1.875rem*/
+    padding: 1.875rem 1.25rem;
+
+    /* ✨ 하단으로 배치하기 */
+    display: flex;
+    flex-flow: column nowrap;
+
+    transition: all 400ms ease;
+}
+.ediya-menu__item--detail.is-active {
+    /* 서서히보이도록 처리할 때 */
+    /* 위에 트랜지션 넣어줘야함 */
+    opacity: 1;
+}
+
+.ediya-menu__item--name {
+    color: #202022;
+    font-size: 1.125rem;
+    /* 18px */
+    padding-bottom: 1.125rem;
+    border-bottom: 2px solid currentColor;
+}
+/* 언어가 영문인 속성 찾기 */
+.ediya-menu__item--name [lang="en"] {
+    display: block;
+    /* 14px/16px */
+    font-size: 0.875rem;
+    color: var(--gray);
+}
+.ediya-menu__item--detail p {
+    line-height: 1.5;
+    
+    /* ✨ 하단으로 배치하기 */
+    flex-grow: 1;
+}
+.ediya-menu__item--multi-column {
+    background-color: var(--silver);
+    column-count: 2;
+    column-rule: 1px solid var(--black2);
+    /* 1. 기존에는 position으로 했다. */
+    /* position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0; */
+
+    /* ✨ 하단으로 배치하기 */
+    margin: 0 -1.25rem -1.875rem;
+}
+.ediya-menu__item--multi-column dl {
+    margin: 0;
+    /* float요소 부모에게 overflow: hidden; 줘서 after에 content, block써서 묶는 방법아니여도 된다. */
+    overflow: hidden;
+}
+.ediya-menu__item--multi-column dt {
+    float: left;
+    width: 40%;
+    /* margin-right: 10%; */
+    margin-left: 10%;
+    margin-top: 0.5em;
+}
+.ediya-menu__item--multi-column dd {
+    margin-left: 0;
+    float: left;
+    width: 40%;
+    margin-right: 10%;
+    margin-top: 0.5em;
+}
+.ediya-menu__item--detail .button-close-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: var(--gray);
 }
 
 /* 모바일 =================================*/
