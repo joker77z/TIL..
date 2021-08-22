@@ -945,7 +945,7 @@ body{
     content :"";
 }
 
-
+/* footer  */
 .footer-bg{
     background: linear-gradient(to bottom, #ccc, #eee 60%, #fff 100%);
 }

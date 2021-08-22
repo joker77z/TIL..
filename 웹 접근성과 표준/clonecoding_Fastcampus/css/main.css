@@ -1,0 +1,226 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.a11y-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0); /* 구형 브라우저 위해 */
+    clip: rect(0 0 0 0); /* IE호환을 위해 */
+    overflow: hidden;
+}
+body, h1 {
+    margin: 0;
+}
+
+/* 모바일 ========================*/
+.container {
+}
+/* header */
+.header {
+    position: relative;
+    padding: 14px 16px 14px 20px;
+}
+.logo {
+    font-size: 1rem;
+    line-height: 1;
+}
+.logo img , .logo a {
+    display: inline-block;
+}
+.mobile-menubtn {
+    border: 0;
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    background : url("./images/btn-menu.png") no-repeat;
+    height: 24px;
+    width: 24px;
+}
+.mobile-menubtn.is-active + .navigation{
+    display: block;
+}
+.mobile-menubtn.is-active {
+    background : url("./images/btn-close.png") no-repeat;
+}
+.navigation{
+    display: none;
+}
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 60px 0 60px 48px;
+    font-size: 20px;
+}
+.menu-item {
+    margin-bottom: 24px;
+}
+.navigation .is-active {
+    font-weight: bold;
+}
+
+/* footer */
+.footer-bg {
+    background-color: #4F4F4F;
+}
+.footer {
+    padding: 24px;
+}
+.footer-wrap {
+    display: flex;
+    flex-direction: column;
+}
+.subnav {
+    padding-left: 0;
+    margin: 20px 0 20px 0;
+    list-style: none;
+}
+.subnav li a{
+    display: inline-block;
+    text-decoration: none;
+    color: #F2F2F2;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.sns {
+    padding-left: 0;
+    margin: 32px 0 20px 0;
+    list-style: none;
+    order: -1;
+}
+.sns li {
+    display: inline-block;
+}
+.sns .facebook, 
+.sns .instagram,
+.sns .youtube,
+.sns .naver {
+    background-image: url("./images/sns.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.sns .facebook {
+    background-position: 0, 0;
+}
+.sns .instagram {
+    background-position: -40px, 0;
+}
+.sns .youtube {
+    background-position: -80px, 0;
+}
+.sns .naver {
+    background-position: -120px, 0;
+}
+
+.address {
+    margin-top: 10px;
+    color: white;
+    order: -2;
+    font-style: normal;
+    font-size: 12px;
+}
+.address span {
+    color: #F2F2F2;
+    display: block;
+    margin-top:3px;
+}
+/* PC ========================*/
+@media screen and (min-width: 800px) {
+    .container {
+    }
+    /* header */
+    .header {
+        padding: 19px 32px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo {
+        margin-top: 0;
+        margin-bottom: 0;
+        display: inline-block;
+        height: 22px;
+    }
+    .logo img {
+        display: block;
+    }
+    .mobile-menubtn {
+        display: none;
+    }
+    .navigation {
+        display: inline-block;
+    }
+    .menu {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        height: 22px;
+    }
+    .menu-item {
+        float: left;
+        margin: 0;
+        padding-bottom: 0;
+        height: 100%;
+        line-height: 22px;
+        margin-left: 24px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .menu-item.is-active {
+        text-decoration: underline #000 2px;
+        text-underline-offset: 22px;
+    }
+    /* footer */
+    .footer {
+        position: relative;
+        padding: 32px;
+    }
+    .footer-logo {
+        display: block;
+    }
+    .footer-wrap {
+        display: flex;
+    }
+    .subnav {
+        position: absolute;
+        top:0;
+        right:0;
+        display: flex;
+        margin: 32px 32px 0 0 ;
+    }
+    .subnav li:nth-child(1) {
+        order:9999;
+    }
+    .subnav li {
+        display: inline-block;
+        font-size: 0.875rem;
+        line-height: 1.15;
+    }
+    .subnav li:nth-child(n+2)::after {
+        content: '|';
+        height: 11px;
+        color: #828282;
+    }
+    .subnav li a {
+        display: inline-block;
+        font-size: 12px;
+        padding: 0 10px;
+        margin-bottom: 0;
+    }
+    /* sns */
+    .sns {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 0 32px 27px 0;
+    }
+}
+
