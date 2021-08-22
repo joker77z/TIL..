@@ -103,8 +103,4 @@ dist
 # TernJS port file
 .tern-port
 
-<<<<<<< HEAD
 .DS_Store
-=======
-.DS_Store
->>>>>>> 3c4e23c6e19f0e25d10445ffb3f46143f057fd27
