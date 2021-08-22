@@ -4,7 +4,8 @@ function solution(nums, m) {
     for(let i=0; i<nums.length; i++){
         let ps=nums[i][0];
         let pt=nums[i][1];
-        for(let j=m; j>=pt; j--){
+        // for(let j=m; j>=pt; j--){
+        for(let j=pt; j<=m; j++){
             dy[j]=Math.max(dy[j], dy[j-pt]+ps);
         }
     }

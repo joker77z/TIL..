@@ -2,21 +2,36 @@
 function solution(nums) {
     let answer = 0;
     let dy = Array.from({length:nums.length}, () => 0);
+    let pa = Array.from({length:nums.length}, () => -1);
+
     dy[0] = 1;
     for(let i=1; i<nums.length; i++) {
         // dy[i]=1; // 일단 자기혼자 있는데. 길이가 최소 1일꺼다 ,강의에서 다른 방식으로 해보겠다.
         let max  = 0;
         for(let j=i-1; j>=0; j--) {
-            console.log(`nums[i]: ${nums[i]} / nums[j]: ${nums[j]} / dy[j]: ${dy[j]} / max: ${max}`)
-            if(nums[i]>nums[j] && dy[j]>max) { // dy[j]에서 가장 큰 값. j들 중 최대값 찾아야 되니까. 앞에 있는 조건을 만족하는 것이. 뒤로 붙을 수 있는 수열들. 그 중에서 가장 큰거 뒤에 붙어야 된다.
+            if(nums[j]<nums[i] && dy[j]>max) { // dy[j]에서 가장 큰 값. j들 중 최대값 찾아야 되니까. 앞에 있는 조건을 만족하는 것이. 뒤로 붙을 수 있는 수열들. 그 중에서 가장 큰거 뒤에 붙어야 된다.
                 max = dy[j];
-                console.log(`${nums[i]}, ${nums[j]}, ${max}`)
+                pa[i]=j;
             }
         }
         dy[i] = max+1;
-        console.log(`${dy[i]}`)
-        answer = Math.max(answer, dy[i]);
+        if(dy[i]>answer) {
+            answer = dy[i];
+            pos=i;
+        }
     }
+    // console.log(pa) // -1, -1, 1, 2, 1, -1, 3, 5 (이거 필기한 부분notability 8.5 2번째. 12-2 변형)
+    let path=[];
+    function DFS(idx) {
+        if(idx===-1) return;
+        else {
+            DFS(pa[idx]);
+            path.push(nums[idx]);
+        }
+    }
+    DFS(pos);
+    
+    console.log(path)
     return answer;
 }
 
