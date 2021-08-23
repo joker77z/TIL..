@@ -16,15 +16,16 @@
 
 */
 
-function solution(nums) {
-    let answer = 0;
-    let max = Number.MIN_SAFE_INTEGER;
-    for(let i=0; i<nums.length; i++) {
-        if(nums[i]<nums[i+1] && max<nums[i+1]) {
+function solutionB(nums) {
+    let answer = 1;
+    let max = nums[0];
+    for(let i=1; i<nums.length; i++) {
+        if(max<nums[i]) {
+            console.log(nums[i], nums[i+1])
             max = nums[i];
             answer++;
         }
     }
     return answer;
 }
-console.log(solution([130, 135, 148, 140, 145, 150, 150, 153]))
+console.log(solutionB([130, 135, 148, 140, 145, 150, 150, 153]))
