@@ -1,0 +1,112 @@
+@use './base' as *;
+@use './color' as *;
+@use './function' as *;
+
+// 입력 서식 기본 스타일 및 아웃라인
+.form-input__input {
+    appearance: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+// 하나의 div 컴포넌트
+.form-input {
+    // BEM패턴의 장점
+    &__label {
+        display: block;
+        color: $form-text-color;
+        font-weight: 500;
+        // font-size: 0.875rem;
+        font-size: rem(14px);
+    }
+
+    &__input {
+        display: block;
+        padding: 0 rem(16);
+        width: 100%;
+        // 높이는 rem단위 잘 안쓴다. 
+        // 위아래 패딩 줘서 늘리는 패턴 선생님 많이 쓰는데 현업에서 안쓰는 이유가 브라우저마다 다르게 보일 수 있음. 그래서 높이는 반응형이라고해도 고정 쓰는 경우가 많다.
+        // height: rem(48px);
+        height: 48px;
+        border: 1px solid $form-border-color;
+        color: $form-text-color;
+        font-size: rem(14px);
+
+        // 크로스브라우징
+        // input에 x버튼 클리어
+        &::-ms-clear,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button {
+            display: none;
+        }
+
+        // 용도가 달라서 분리했다. 비밀번호에 한해서 눈모양 아이콘 나오지 않도록.
+        // IE에서만 나오니까 공통으로 안나오게 한다.
+        &::--ms-reveal {
+            display: none;;
+        }
+
+        // 플레이스 홀더 글자색
+        &::placeholder,
+        &::-ms-input-placeholder {
+            color: $form-placeholder-color;
+        }
+        // 다 아닐 때 
+        // 복잡하지만 구체성은 1개다.
+        // hover와 focus를 줬다 빼는게 아니고 아닐 때만 주겠다는 것.
+        // not선택자의 좋은 용법
+        // &:not(:read-only):not([readonly]):not(:disabled) {
+        //     &:hover {
+        //         border-color: $form-border-hover-color;
+        //     }
+        //     // hover랑 따로 놓는 이유는 수정할 때 편하게.
+        //     &:focus {
+        //         border-color: $form-border-focus-color;
+        //     }
+        // }
+        
+        // not의 경우 IE11 이하 지원하지 않음.
+        &:hover {
+            border-color: $form-border-hover-color;
+        }
+        // hover랑 따로 놓는 이유는 수정할 때 편하게.
+        &:focus {
+            border-color: $form-border-focus-color;
+        }
+
+        // IE에서는 지원안한다 그래서 속성선택자방식으로 &[readonly] 근데 이거는 모든브라우저에서 다 지원하니까 이거만 냅둬도 되지만 여기서는 다 냅두자.
+        &:read-only,
+        &[readonly] {
+            background-color: form-bg-readonly-color;
+            cursor: default;
+        }
+
+        &:disabled {
+            background-color: $form-bg-disabled-color;
+            color: $form-text-disabled-color;
+            // 금지 포인터모양 나온다.
+            cursor: not-allowed;
+        }
+
+        &:read-only:hover,
+        &[readonly]:hover,
+        &:disabled:hover,
+        &:read-only:focus,
+        &[readonly]:focus,
+        &:disabled:focus {
+            border-color: $form-border-color;
+        }
+    }
+
+    &__input--error + .error-message {
+        display: block;
+    }
+    // 구체성 점수 낮추기 위해 사용해봤다.
+    @at-root .error-message {
+        font-size: rem(14px);
+        color: $form-error-color;
+        margin-top: rem(8px);
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+@use './base' as *;
+@use './color' as *;
+@use './function' as *;
+@use './form' as *;
+
+// 입력 서식 기본 스타일 및 아웃라인
+.form-textarea__textarea {
+    appearance: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+.form-textarea {
+    &__textarea {
+        display: block;
+        padding: 0 rem(16px);
+        width: 100%;
+        // 마크업에서 rows 5로 설정해줬으니 높이 auto
+        height: auto;
+        // 안늘어나게 하려면 height로 고정주면된다.
+        min-height: 80px;
+        border-radius: 4px;
+        border: 1px solid $form-border-color;
+        background: $form-bg-color;
+        color: $form-text-color;
+        font-size: rem(14px);
+        resize: none;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+      
+        &::-webkit-scrollbar-thumb {
+          border-radius: 2px;
+          background-color: rgba(#f00, 0.5);
+        }
+    }
+}

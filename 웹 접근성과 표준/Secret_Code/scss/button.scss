@@ -1,0 +1,47 @@
+@use './base' as *;
+@use './color' as *;
+@use './function' as *;
+@use './form' as *;
+
+.button {
+    // 버튼은 디펄트가 border-box, a는 컨텐츠박스 이 부분을 통일시키기 위해
+    // 부모가 뭐든 상관없이 늘 border-box오도록.
+    box-sizing: border-box;
+    // 인라인처럼 흘러가지만 flex를 사용할 수 있다.
+    display: inline-flex;
+    padding: rem(8px) rem(16px);
+    border: 0;
+    outline: 0;
+    // 대신에 마우스를 받았을 때 색상 변하는걸로 outline을 대체하겠다.
+    font-size: rem(14px);
+    font-weight: 600;
+    cursor: pointer; // button을 바꾸는 것에 대해 반대입장이 있을 수 있다.
+    letter-spacing: -1px; // 자간 조절 좀 좁혀주자.
+    // 단어간격은 word-spacing
+    text-decoration: none;
+    color: inherit;
+    border-radius: rem(6px);
+
+    &:hover, &:focus {
+        //rgba는 css 코드가 아니다 scss 내장함수다.
+        box-shadow: 0 0 1px 1px rgba($button-shadow-color, 0.3);
+        background-color: darken($button-default-color, 15%); // 15%만큼 어둡게
+    }
+}
+
+// class앞에가 이거일 때
+[class*="button-fill--"] {
+    color: $button-white-color;
+}
+.button-fill {
+    &--default {
+        background-color: $button-default-color;
+    }
+    &--primary {
+        background-color: $button-primary-color;
+
+        &:hover, &:focus {
+            background-color: darken($button-primary-color, 15%);
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@use './base' as *;
+@use './color'as *;
+@use './function' as *;
+@use './form' as *;
+
+.icon {
+    // 아이콘이 들어와도 텍스트 옆에서 자연스럽게 흘러가게 + width, height주기 위해
+    display: inline-block;
+    // 아이콘에 텍스트가 없으니까 or 있지 않아도 되니까
+    font-size: 0;
+    line-height: 0;
+    // 혹시 아이콘 사이즈에서 넘어가는게 있으면
+    overflow: hidden;
+
+    &-checkbox--square {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(18px);
+        height: rem(18px);
+        background-image: url(./../assets/sprite-checkbox-square.png);
+        background-repeat: no-repeat;
+    }
+}
+
+.form-checkbox{
+    position: relative;
+
+    &__checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(18px);
+        height: rem(18px);
+        cursor: pointer;
+
+        // &:checked + .form-checkbox__label .icon-checkbox-square {
+        // } 가독성이 떨어지니까 밖으로 뺴내자.  위는 노멀상태인것처럼 아래는 체크드가 됬을 때로. 나누자.
+    }
+    &__checkbox:checked + &__label .icon-checkbox--squre {
+        background-position: -20px 0;
+    }
+    &__checkbox:disabled + &__label .icon-checkbox--squre {
+        background-position: -40px 0;
+    }
+    &__checkbox:checked:disabled + &__label .icon-checkbox--squre {
+        background-position: -60px 0;
+    }
+
+    &__label {
+        position: relative;
+        height: rem(18px);
+        line-height: rem(18px);
+        padding-left: rem(22px);
+    }
+}

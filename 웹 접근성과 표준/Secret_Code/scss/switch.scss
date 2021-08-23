@@ -1,0 +1,62 @@
+@use 'sass:math';
+@use './base' as *;
+@use './color' as *;
+@use './function' as *;
+@use './form' as *;
+
+
+.form-switch {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+
+    &__switch {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // 부모크기만큼 읽얻릠. 포커스때문에 준 것
+        width: 100%;
+        margin-right: 80px;
+    }
+
+    &__switch:checked + &__label::after {
+        transform: translateX(rem(16px));
+    }
+    &__switch:checked + &__label::before {
+        background-color: $form-switch-bg-color;
+    }
+
+    &__label {
+        $h : 24px; // 수정될 가능성이 높은걸 지역변수 처리해줬다. 이 안에서만 유효하다.
+        position: relative;
+        height: $h;
+        // 아이콘 보면서 글자 밀려서 나가게
+        padding-left: rem(50px);
+        // 텍스트 레이블이 있기 때문에 글자를 중간에 배치시키기 위해서 준것
+        line-height: $h;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+        }
+        &::before {
+            width: rem(40px);
+            top: 0;
+            left: 0;
+            // label이 가진 높이 불러오기
+            height: 100%;
+            border-radius: math.div($h, 2); // 높이의 절반만큼 사용.
+            background-color: $gray6;
+        }
+        &::after {
+            top: rem(4px);
+            left: rem(4px);
+            width: rem(16px);   
+            height: rem(16px);   
+            border-radius: 50%; // 정원을 만들기 위해
+            background-color: $form-switch-button-color;
+            transition: transform 300ms
+        }
+    }
+}

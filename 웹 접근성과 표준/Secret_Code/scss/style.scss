@@ -1,0 +1,10 @@
+// line-height값
+$font-base: 1.5;
+$base-color: #181818;
+$base-bg: #fff;
+
+body {
+    line-height: $font-base;
+    color: $base-color;
+    background: $base-bg;
+}

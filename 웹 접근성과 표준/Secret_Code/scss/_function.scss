@@ -1,0 +1,22 @@
+@use 'sass:math'; // 빌트인은 맨 먼저 선언해야 된다.
+
+// 루트 요소 기본 단위 --------------------------------------------------------------- /
+$root-value: 16px !default;
+
+// 단위 제거 함수 ------------------------------------------------------------------ /
+@function removeUnit($value){
+  // @return ($value / ($value * 0 + 1));
+  @return math.div($value, $value * 0 +1);
+}
+
+// px을 rem 단위로 변경하는 함수 ------------------------------------------------------- /
+@function rem($value, $base: $root-value){
+  // @return (removeUnit($value / $base)) * 1rem;
+  @return removeUnit(math.div($value, $base)) * 1rem;
+}
+
+// px을 em 단위로 변경하는 함수 ------------------------------------------------------- /
+@function em($value, $base: $root-value){
+  // @return (removeUnit($value / $base)) * 1em;
+  @return removeUnit(math.div($value, $base) * 1rem);
+}
