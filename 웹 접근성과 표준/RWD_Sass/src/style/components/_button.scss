@@ -1,0 +1,60 @@
+@use './../utils' as *;
+
+// 기본 버튼 스타일
+.button {
+  appearance: none;
+  pointer-events: none;
+  border: 0;
+  background : $black;
+  color: $white;
+  padding: rem(8px) rem(16px);
+  font-size: rem(14px);
+  border-radius: rem(4px);
+
+  &None{
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: none;
+  }
+  &--primary{
+    background: $brown;
+  }
+  &--secondary{
+    background: $blue;
+  }
+  &--accent{
+    background: $yellow;
+  }
+
+  // 햄버거 버튼
+  &--burger{
+    width: rem(32px);
+    height: rem(32px);
+    overflow: hidden;
+    transform: translate(0,0);
+
+    &BarTop,
+    &BarMiddle,
+    &BarBottom{
+      background: $white;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      border-radius: rem(4px);
+    }
+
+    &BarTop{
+      top: 0;
+    }
+    &BarMiddle{
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &BarBottom{
+      top: 100%;
+      transform: translateY(-100%);
+    }
+  }
+}

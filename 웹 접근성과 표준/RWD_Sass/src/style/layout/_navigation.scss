@@ -1,0 +1,57 @@
+@use './../utils' as *;
+@use './../components' as *;
+
+ // 메인 메뉴
+ .menu{
+  @include desktop{
+    background: $brown;
+  }
+  &__list{
+    @include mobile{
+      position: fixed;
+      top: 0;
+      left: -100%;
+      transform: translateX(-100%);
+      width: 75%;
+      height: 100vh;
+      background: rgba($green, 0.95);
+      padding: rem(32px);
+      transition: all 350ms ease-in-out;
+    }
+    @include desktop{
+      @include boxSizeMax($paddingX: rem(20px));
+      @include flexbox(row, space-between);
+    }
+  }
+
+  &__item{
+    @include mobile{
+      margin: rem(8px) 0;
+    }
+    @include desktop{
+      margin: rem(16px) 0;
+    }
+  }
+
+  &__link{
+    display: block;
+    padding: rem(8px);
+    font-weight: 500;
+
+    @include desktop{
+      color: $white;
+      font-weight: 700;
+      text-shadow: 1px 1px 0 $black, -1px -1px 0 $black;
+    }
+  }
+ }
+
+// 모바일에서 .appNavigation에 is-active 클래스가 적용된 경우
+.menu.is-active{
+  @include mobile{
+    .menu__list{
+      left: 0;
+      transform: none;
+    }
+  }
+ }

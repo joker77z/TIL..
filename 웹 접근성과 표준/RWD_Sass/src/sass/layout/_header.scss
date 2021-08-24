@@ -1,0 +1,131 @@
+@use './../utils' as *;
+@use './../components' as *;
+
+.appHeader {
+    @include flexbox(column);
+    @include mobile {
+        position: relative;
+        background: $darkbrown;
+        padding: 0 rem(20px);
+    }
+
+    @include desktop {
+        @include boxSizeMax($paddingX: 20px);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50px 60px;
+        grid-template-areas:"logo member"
+                            "logo search";
+    }
+    
+    // 로고
+    .logo {
+        // width: 204px;
+        // height: 59px;
+        
+        @include desktop {
+            // grid-column: 1 / 2;
+            // grid-row: 1 / 3;
+            // grid-area: 1 / 1 / 3 / 2;
+            grid-area: logo;
+        }
+
+        &__link {
+            $w: rem(204px);
+            $h: rem(59px);
+            display: block;
+            width: $w;
+            height: $h;
+            @include bgRetina('webcafe-logo', 'png', $w, $h)
+        }
+        
+        @include desktop {
+            grid-area: logo;
+        }
+    }
+
+    // 멤버 링크
+    .memberOnly {
+        @include flexbox(row, flex-end);
+        padding: rem(16px) 0;
+
+        @include mobile {
+            order: -1;
+            color: $white !important;
+            font-size: rem(14px);
+        }
+
+        @include desktop {
+            grid-area: member;
+        }
+
+        .divider {
+            margin: 0 rem(8px);
+        }
+
+        a {
+            display: inline;
+            padding: rem(6px) 0 ;
+        }
+
+    }
+
+    // 검색
+    .searchForm {
+        @include desktop {
+            grid-area: search;
+        }
+
+        &__group {
+            @include flexbox(row, flex-start, center);
+            @include mobile {
+                padding: rem(16px) 0;
+            }
+            .formInput {
+                flex-grow: 1;
+            }
+
+            .button--primary {
+                margin-left: rem(20px);
+            }
+        }
+    }
+
+    // 버거 메뉴
+    .button--burger {
+        @include mobile {
+            width: rem(36px);
+            height: rem(36px);
+            position: absolute;
+            top: rem(56px);
+            right: rem(20px);
+            overflow: hidden; // 버튼이 is-active될 때밖으로 나가면 안보이게.
+
+            &BarTop, &BarMiddle, &BarBottom {
+                transition: all 250ms;
+            }
+
+        }
+        @include desktop {
+            // a11y-hidden필요없다. 읽을필요없다.
+            display: none;
+        }
+    }
+
+    .is-active {
+        .button--burgerBarTop {
+            top: 50%; // 가운데 배치시켜야 X로 돌아갈 때 된다.
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .button--burgerBarMiddle {
+            // transform: translateX() // 이거주면 기존에줬던거가 망가짐.
+            transform: translate(-100%, -50%); 
+        }
+
+        .button--burgerBarBottom {
+            top: 50%; // 가운데 배치시켜야 X로 돌아갈 때 된다.
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@use './../utils' as *;
+
+.app{
+  min-width: 320px;
+
+  @include mobile{
+    padding: 0 rem(20px);
+  }
+}

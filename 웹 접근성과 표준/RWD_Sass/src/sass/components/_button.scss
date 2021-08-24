@@ -1,0 +1,50 @@
+@use './../utils' as *;
+
+.button {
+    appearance: none;
+    border: 0;
+    background: $black;
+    color: $white;
+    padding: rem(8px) rem(16px);
+    font-size: rem(14px);
+    border-radius: rem(4px);
+    
+
+    &None {
+        appearance: none;
+        border: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    &--primary {
+        background: $brown;
+    }
+
+    // 햄버거 버튼
+    &--burger {
+        position: absolute; // absolute나 relative두개 다 가능하지만 컴포넌트 관점에서 이게 낫다.
+        width: rem(48px);
+        height: rem(48px);
+
+        &BarTop, &BBarMiddle, &BarBottom {
+            position: absolute; // display: block으로 바뀐다.
+            background-color: white;
+            width: 100%;
+            height: 20%;
+            left: 0;
+            border-radius: rem(10px); // 20은 넘지 않을꺼라 가정하고 10px. 20px까지도안전하다.
+        }
+        &BarTop {
+            top: 0;
+        }
+        &BarMiddle {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &BarBottom {
+            top: 100%;
+            transform: translateY(-100%);
+        }
+    }
+}

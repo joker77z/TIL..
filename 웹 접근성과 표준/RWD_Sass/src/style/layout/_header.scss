@@ -1,0 +1,114 @@
+@use './../utils' as *;
+@use './../components' as *;
+
+// 헤더
+.appHeader{
+  @include flexbox(column);
+  @include mobile{
+    position: relative;
+    margin: 0 rem(-20px);
+    padding: 0 rem(20px);
+    background: $darkbrown;
+  }
+  @include desktop{
+    @include boxSizeMax($paddingX: rem(20px));
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "logo member"
+                         "logo search";
+  }
+
+  .button--burger{
+    @include mobile{
+      position: absolute;
+      top: rem(48px);
+      right: rem(20px);
+      
+      &BarTop,
+      &BarMiddle,
+      &BarBottom{
+        transition: all 200ms;
+      }
+    }
+
+    @include desktop{
+      display: none;
+    }
+  }
+  .button--burger.is-active{
+    .button--burgerBarTop{
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .button--burgerBarMiddle{
+      transform: translate(-100%, -50%);
+    }
+    .button--burgerBarBottom{
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+}
+
+// 로고
+.logo{
+  @include mobile{
+    position: relative;
+    top: rem(-16px);
+  }
+  @include desktop{
+    grid-area: logo;
+    align-self: center;
+  }
+
+  // 로고를 배경이미지로 구현 (고해상도 배경이미지도 필요)
+  &__link{
+    $w: rem(204px);
+    $h: rem(59px);
+    display: block;
+    width: $w;
+    height: $h;
+    @include bgRetina('webcafe-logo', 'png', $w, $h);
+  }
+}
+// 회원 서비스
+.memberOnly{
+  @include flexbox(row, flex-end);
+  padding: rem(8px) 0;
+
+  @include mobile{
+    order: -1;
+    color: $white;
+    font-size: rem(14px);
+  }
+
+  @include desktop{
+    grid-area: member;
+  }
+
+  .divider{
+    margin: 0 rem(8px);
+  }
+
+  a{
+    display: inline-block;
+    padding: rem(8px) 0;
+  }
+}
+
+// 검색
+.searchForm{
+  padding-bottom: rem(16px);
+  @include desktop{
+    grid-area: search;
+  }
+  &__group{
+    @include flexbox(row, flex-start, center);
+
+    .formInput{
+      flex-grow: 1;
+      margin-right: rem(8px);
+    }
+  }
+}

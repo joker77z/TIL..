@@ -1,0 +1,203 @@
+@use './../utils' as *;
+/* homeMain 섹션 제목 공통 */
+// postcss-preset-env가 지원하는 custom selectors를 사용할 수 있다.
+// 단 해당 플러그인을 사용하고자 한다면 webpack.config.js 파일에서
+// postcss-preset-env의 stage 값을 1로 수정해야 한다. 
+@custom-selector :--home-section-title .book__title, .news__title, .board__title, .favorite__title, .twitter__title;
+
+:--home-section-title {
+  // 제목 관련 공통 스타일을 지정할 수 있다. 
+}
+
+.homeMain{
+  // homeMain 섹션 공통
+  .book, .news, .board, .favorite, .twitter{
+    margin: rem(24px) 0;
+  }
+
+  // homeMain 섹션 제목 공통
+  .book__title, .news__title, .board__title, .favorite__title, .twitter__title{
+    @include flexbox(column, center);
+    min-height: rem(60px);
+    padding: rem(4px) 0 0 rem(64px);
+    margin-bottom: rem(16px);
+    font-size: rem(20px);
+    font-weight: 500;
+  }
+  // homeMain 섹션 영문 제목 공통
+  [class*="__enTitle"]{
+    font-size: rem(14px);
+    margin-top: rem(4px);
+  }
+
+  // homeMain 섹션 본문 공통
+  [class*="__summary"]{
+    line-height: 1.5;
+  }
+
+  // homeMain 아이콘 공통 [far - font awsome]
+  .far, .fas{
+    margin-right: rem(8px);
+  }
+  // book 섹션
+  .book{
+    &__cover{
+      width: 70%;
+      @include autoMargin;
+      text-align: center;
+      // 책 표지 이미지를 반응형으로 처리히가 위해 믹스인 사용
+      &Image{
+        @include responsive;
+      }
+      &Caption{
+        margin: rem(16px) 0;
+        text-align: center;
+      }
+    }
+  
+    &__info{
+      text-align: center;
+      * {
+        display: inline-block;
+      }
+    
+      .ratingStar{
+        display: block;
+        color: $green;
+        font-size: rem(24px);
+        margin: rem(8px) 0 rem(16px);
+      }
+    }
+  }
+  
+  // 뉴스 섹션
+  .news{
+    &__videoContainer{
+      margin-bottom: rem(16px);
+    }
+    &__video{
+      @include responsive(width);
+    }
+    &__date{
+      display: block;
+      text-align: right;
+      margin-top: rem(8px);
+    }
+  }
+
+  // 게시판 섹션
+  .board{
+    $dateLength : 6.25em;
+
+    position: relative;
+    &__item{
+      @include flexbox(row, space-between);
+      margin: rem(8px) 0;
+    }
+
+    &__link{
+      display: block;
+      width: calc(100% - #{$dateLength});
+      padding: rem(8px) 0;
+      @include ellipsis;
+    }
+
+    &__date{
+      width: $dateLength;
+      padding: rem(8px) 0;
+      text-align: right;
+    }
+
+    &__more{
+      position: absolute;
+      top: rem(4px);
+      right: 0;
+      padding: rem(8px) 0;
+    }
+  }
+
+  // favorite 섹션
+  .favorite{
+    &__item{
+      margin: rem(8px) 0;
+    }
+
+    &__link{
+      display: block;
+      padding: rem(8px) 0;
+
+      @include mobile{
+        // 모바일에서 반응형으로 글자 크기를 조정하고 싶다면 clamp()를 사용할 수 있다.
+        &::after{
+          position: relative;
+          top: rem(4px);
+          content: attr(data-tooltip);
+          font-size: clamp(0.75rem, 4vw, 1.125rem);
+          margin-left: rem(8px);
+          display: inline-block;
+          @include ellipsis;
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  // twitter 섹션
+  .twitter{
+    &__container{
+      @include clearFix;
+    }
+    &__userInfo{
+      display: inline-flex;
+      margin-bottom: rem(12px);
+    }
+    &__userId{
+      transform: translateY(-2px);
+      margin-left: rem(6px);
+    }
+    &__userProfile{
+      overflow: hidden;
+      width: clamp(rem(48px), 25vw, rem(100px));
+      height: clamp(rem(64px), 25vw, rem(100px));
+      float: right;
+      margin-left: rem(6px);
+      border: 1px solid $gray;
+      border-radius: 50%;
+      shape-outside: circle(50%);
+    }
+    &__userProfileImage{
+      @include responsive;
+    }
+    &__date{
+      margin-top: rem(8px);
+      display: block;
+    }
+  }
+
+  @include desktop{
+    // background-color: yellow;
+    @include boxSizeMax($paddingX: rem(20px));
+    display: grid;
+    grid-gap: rem(20px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "news news news news news news news news news news news news"
+                         "book book book book favorite favorite favorite twitter twitter twitter twitter twitter"
+                         "book book book book . board board board board board board board";
+
+    .book{
+      grid-area: book;
+    }
+    .news{
+      grid-area: news;
+    }
+    .board{
+      grid-area: board;
+    }
+    .favorite{
+      grid-area: favorite;
+    }
+    .twitter{
+      grid-area: twitter;
+    }
+  }
+}

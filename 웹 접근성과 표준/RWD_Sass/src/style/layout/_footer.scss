@@ -1,0 +1,31 @@
+@use './../utils' as *;
+@use './../components' as *;
+
+.appFooter{
+  background: $darkbrown;
+  color: $white;
+  padding-top: rem(32px);
+  padding-bottom: rem(24px);
+  line-height: 1.5;
+  font-size: rem(14px);
+
+  @include mobile{
+    margin: 0 rem(-20px);
+    padding-left: rem(20px);
+    padding-right: rem(20px);
+  }
+  @include desktop{
+    text-align: center;
+  }
+
+  .address{
+    @include mobile{
+      @include flexbox(column);
+    }
+  }
+  .copyright{
+    display: block;
+    margin-top: rem(16px);
+    text-transform: uppercase;
+  }
+}
