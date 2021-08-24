@@ -19,3 +19,18 @@ function solution(score) {
 
 console.log(solution([87, 89, 92, 100, 76])) // 4 3 2 1 5
 console.log(solution([90, 90, 90, 82, 100])) // 4 3 2 1 5
+
+function solutionB(score) {
+    let answer = Array.from({length:score.length}, () => 1);
+    for(let i=0; i<score.length; i++) {
+        for(let j=0; j<score.length; j++) {
+            if(score[i] < score[j]) {
+                answer[i]++;
+            }
+        }
+    }
+    return answer;
+}
+
+console.log(solutionB([87, 89, 92, 100, 76])) // 4 3 2 1 5
+console.log(solutionB([90, 90, 90, 82, 100])) // 4 3 2 1 5
