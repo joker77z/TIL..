@@ -1,2 +1,50 @@
 @use './../utils' as *;
 @use './../components' as *;
+
+
+.menu {
+    @include desktop {
+        background-color: brown;
+        padding: rem(16px) 0;
+    }
+    &__list {
+        @include mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(-150%);
+            width: 70%;
+            height: 100vh;
+            background: rgba($darkbrown, 0.95);
+            padding: rem(32px);
+            transition: all 200ms ease; // ease는 생략해도 된다.
+        }
+        
+        @include desktop {
+            // background-color: lime;
+            @include boxSizeMax($paddingX: rem(20px));
+            @include flexbox(row, space-between, center, nowrap);
+            font-size: rem(18px);
+        }
+    }
+    
+    &__item {
+        @include mobile {
+            margin-bottom: rem(16px);
+        }
+    }
+    &__link {
+        display: block;
+        padding: rem(8px);
+        font-weight: 500; // 레귤러가 400
+        color: $white;
+    }
+}
+
+.menu.is-active {
+    // ❗️ point: 내가 틀린 부분 중요하다.
+    .menu__list {
+        transform: none; // translateX=0주거나 none을 줘서 하면 된다.
+        // 자연스러운 애니메이션은 부모에 준다.
+    }
+}
