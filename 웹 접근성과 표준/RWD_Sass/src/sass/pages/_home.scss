@@ -151,40 +151,73 @@
         }
     }
 
+    // 트위터
+    .twitter {
+        &__userInfo {
+            // dd한테 하나씩 inlin-block줬어야 됬는데 이젠 부모컨테이너에 inline-flex주자.
+            display: inline-flex;
+            margin-bottom: rem(12px);
+        }
+
+        &__userProfile {
+            width: rem(100px);
+            height: rem(100px);
+            border-radius: 50%;
+            overflow: hidden;
+            float: right;
+            background-color: skyblue;
+            shape-outside: circle(50%);
+        }
+
+        &__userProfileImage {
+            @include responsive;
+        }
+
+        &__summary {
+            padding: rem(10px) 0;
+        }
+
+        &__date {
+            display: block;
+            margin-top: rem(8px);
+        }
+    }
+
     @include mobile {
         padding: 0 rem(20px);
     }
 
-    // @include desktop {
+    @include desktop {
 
-    //     @include boxSizeMax($paddingX: rem(20px));
-    //     display: grid;
-    //     grid-template-columns: repeat(12, 1fr); // 12개 rows자동으로 생성된다.
-    //     grid-template-rows: auto;
-    //     grid-template-areas: 
-    //     "news news news news news news news news news news news news" 
-    //     "book book book book favorite favorite favorite twitter twitter twitter twitter twitter" 
-    //     "book book book book . board board board board board board board";
+        @include boxSizeMax($paddingX: rem(20px));
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); // 12개 rows자동으로 생성된다.
+        grid-template-rows: auto;
+        gap: rem(20px);
+        grid-template-areas: 
+        "book book book book news news news news news news news news" 
+        "board board board board twitter twitter twitter twitter twitter favorite favorite favorite" ;
+        // "book book book book . board board board board board board board";
     
-    //     .book { // 2~3행
-    //         grid-area: book; //행 시작, 열 시작, 행 끝, 열 끝
-    //     }
+        .book { // 2~3행
+            grid-area: book; //행 시작, 열 시작, 행 끝, 열 끝
+        }
     
-    //     .news { // 2행
-    //         grid-area: news;
-    //     }
+        .news { // 2행
+            grid-area: news;
+        }
     
-    //     .board { // 3행
-    //         grid-area: board;
-    //     }
+        .board { // 3행
+            grid-area: board;
+        }
     
-    //     .favorite { // 2행 시작, 3행 끝.
-    //         // 행번호 , 열번호, 행번호 끝, 열번호 끝
-    //         grid-area: favorite;
-    //     }
+        .favorite { // 2행 시작, 3행 끝.
+            // 행번호 , 열번호, 행번호 끝, 열번호 끝
+            grid-area: favorite;
+        }
     
-    //     .twitter {
-    //         grid-area: twitter;
-    //     }
-    // }
+        .twitter {
+            grid-area: twitter;
+        }
+    }
 }

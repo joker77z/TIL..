@@ -1,2 +1,27 @@
 @use './../utils' as *;
 @use './../components' as *;
+
+// 푸터
+.appFooter {
+    background-color: $darkbrown;
+    color: white;
+    padding: rem(32px);
+    line-height: 1.5;
+    
+    @at-root .address span{
+        @include mobile {
+            display: block;
+        }
+    }
+    
+    @at-root .copyright {
+        font-size: rem(16px);
+        display: block;
+        margin-top: rem(16px);
+        text-transform: uppercase; // 대문자
+    }
+
+    @include desktop {
+        text-align: center;
+    }
+}
