@@ -34,5 +34,29 @@ function solution(nums) {
     return answer;
 }
 
-console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]))
+// console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]))
+// 23 2 73 2 3
+
+// -------------------
+// split('').reverse().join('')을 이용하기.
+
+
+function isPrime(num) {
+    if(num===1) return false;
+    for(let i=2; i<num/2; i++) {
+        if(num%i===0) return false;
+    }
+    return true;
+}
+
+function solutionB(nums) {
+    let answer = [];
+    for(let x of nums) {
+        x = Number(String(x).split('').reverse().join(''));
+        if(isPrime(x)) answer.push(x);
+    }
+    return answer;
+}
+
+console.log(solutionB([32, 55, 62, 20, 250, 370, 200, 30, 100]))
 // 23 2 73 2 3
