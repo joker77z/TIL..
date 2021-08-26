@@ -1,8 +1,160 @@
 @use './../utils' as *;
 
-.homeMain {
+// stage1만 쓸 수 있다. 다시 3으로 바꿈.
+// @custom-selector :--home-section-title .book__title, .news__title, .board__title, .favorite__title, .twitter_title;
 
+.homeMain {
+    // 공통영역이니 주석을 이제 단다.
+
+
+    // 섹션 공통 여백
+    .book, .news, .board, .favorite, .twitter {
+        margin: rem(24px) 0;
+    }
+
+    // 섹션 공통 제목 스타일
+    [class*="__title"] {
+        font-size: rem(20px);
+        @include flexbox(column, center);
+        font-weight: 500;
+        // min-height: rem(60px); // sprite가 가지고 있다.
+        // padding-left: rem(64px);
+        margin-bottom: rem(16px);
+    }
     
+    // 섹션 영문 제목 공통 스타일
+    [class*="__enTitle"] {
+        // display: block; // sprite추가하면서 이제 빠져도 된다.
+        font-size: rem(14px);
+        margin-top: rem(4px);
+    }
+
+    // 섹션 본문 공통 스타일
+    [class*="__summary"] {
+        line-height: 1.5;
+    }
+
+    // 아이콘 공통
+    .far, .fas {
+        margin-right: rem(8px);
+    }
+
+    // 추천 서적
+    .book {
+        &__cover {
+            width: 50%; // 이미지 컨테이너에 50%를 줬다.
+            @include autoMargin;
+            text-align: center;
+        }
+        &__coverImage {
+            // 아무것도 안주면 max-width처리
+            // 화면 좌우가 줄어들 때 이미지 영역들이 꽉찬다.
+            @include responsive();
+        }
+        &__coverCaption {
+            margin: rem(16px) 0;
+        }
+        &__info {
+            text-align: center;
+            *{
+                display: inline-block; // 내부 모든 것을 선택했다.
+            }
+            .ratingStar {
+                display: block;
+                color: $green;
+                font-size: rem(24px);
+                margin: rem(8px) 0 rem(16px);
+            }
+        }
+    }
+    // 새소식
+    .news {
+        &__videoContainer {
+            margin-bottom: rem(16px);
+        }
+        &__video {
+            @include responsive(width);
+        }
+
+        &__iframeContainer {
+            @include responsiveIframe(16, 9);
+            // position: relative;
+            // width: 100%;
+            // // 이미지는 여기다가 height: auto하면 됬는데
+            // // iframe은 height: 0으로 만들고 !important
+            // height: 0 !important;
+            // padding-top: 56.25%;
+
+            // iframe {
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 100%;
+            // }
+        }
+
+        &__date {
+            display: block;
+            text-align: right; // block처리해서 right되게
+            margin-top: rem(8px);
+        }
+    }
+    // 게시판
+    .board {
+        position: relative;
+        &__item {
+            @include flexbox(row, space-between);
+            margin: rem(8px) 0;
+        }
+
+        &__more {
+            position: absolute;
+            top: rem(4px);
+            right: rem(0);
+            padding: rem(8px) 0; // top+padding으로 rem(12px)내려왔다.
+        }
+        &__date {
+            white-space: nowrap;
+            padding: rem(4px) 0; // vertical-align:baseline으로 해도 된다.
+        }
+        &__link {
+            display: block;
+            padding: rem(4px) 0;
+            @include ellipsis;
+            margin-right: 8px;
+        }
+    }
+
+    // 인기 사이트
+    .favorite {
+        &__item {
+            margin: rem(8px) 0;
+        }
+
+        &__link {
+            display: block;
+            padding: rem(8px) 0;
+            @include mobile {
+                &::after {
+                    position: relative; // 노멀플로우 유지하면서 제자리 이동가능. 앞에있는 글자와 자연스럽게 보이려고 임의로 넣었다. top도
+                    top: rem(4px);
+                    content: attr(data-tooltip);
+                    margin-left: rem(8px);
+                    display: inline-block;
+                    color: $orange;
+                    font-size: clamp(0.75rem, 4vw, 1.125rem);
+                    //너무 작아질 때 대비
+                    @include ellipsis;
+                }
+            }
+        }
+    }
+
+    @include mobile {
+        padding: 0 rem(20px);
+    }
+
     // @include desktop {
 
     //     @include boxSizeMax($paddingX: rem(20px));

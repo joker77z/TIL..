@@ -1,1 +1,11 @@
 @use './../utils' as *;
+
+.app {
+    min-width: 320px; // 아무리 작게 축소해도 이거 넘어가지마라.
+    // padding: 0 rem(20px);
+}
+
+// FIXME: 임시
+// video {
+//     width: 100%;
+// }

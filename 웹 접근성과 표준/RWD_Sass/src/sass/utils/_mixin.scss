@@ -1,4 +1,6 @@
-// 고해상도 배경이미지 처리 ---------------------------------------------------- /
+@use 'sass:math';
+// 고해상도 배경이미지 처리 
+// ---------------------------------------------------- /
 @mixin bgRetina($file, $type, $width, $height) {
     background-image: url('./../assets/images/' + $file + '.' + $type);
     background-repeat: no-repeat;
@@ -59,4 +61,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  // 반응형 iframe ----------------------------------------------------------- / 
+  @mixin responsiveIframe($a, $b) {
+    position: relative;
+    width: 100%;
+    height: 0 !important;
+    padding-top: math.div($b, $a) * 100;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
