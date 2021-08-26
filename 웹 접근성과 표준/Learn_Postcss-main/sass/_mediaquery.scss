@@ -1,8 +1,8 @@
 $break: 768px;
 
-@mixin mobile {
-  @media (max-width: $break - 1) {
-    @content;
+@mixin mobile { //파라미터가 없다.
+  @media (max-width: $break - 1) { // 767px
+    @content; // 다른 값이 들어올 수 있게
   }
 }
 @mixin desktop {

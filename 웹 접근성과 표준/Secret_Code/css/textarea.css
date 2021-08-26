@@ -11,6 +11,7 @@
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   line-height: 1.15;
   font-family: "Roboto", "Noto Sans KR", sans-serif;
@@ -74,7 +75,7 @@ textarea {
 
 .form-group [class$=__label] {
   display: block;
-  font-size: rem(14px);
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   color: #333333;
@@ -89,8 +90,8 @@ textarea {
 
 .error-message {
   display: none;
-  margin-top: rem(8px);
-  font-size: rem(14px);
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
   color: #EB5757;
 }
 
@@ -98,20 +99,68 @@ textarea {
   appearance: none;
 }
 .form-textarea__textarea:focus {
-  outline: none;
+  outline: 0;
 }
 
+.form-input__input,
 .form-textarea__textarea {
   display: block;
   padding: 0 1rem;
   width: 100%;
-  height: auto;
-  min-height: 80px;
+  height: 48px;
   border-radius: 4px;
   border: 1px solid #E0E0E0;
   background: #fff;
   color: #333333;
   font-size: 0.875rem;
+}
+.form-input__input::placeholder, .form-input__input:-ms-input-placeholder,
+.form-textarea__textarea::placeholder,
+.form-textarea__textarea:-ms-input-placeholder {
+  color: #BDBDBD;
+}
+.form-input__input::-ms-clear, .form-input__input::-webkit-search-cancel-button, .form-input__input::-webkit-search-results-button,
+.form-textarea__textarea::-ms-clear,
+.form-textarea__textarea::-webkit-search-cancel-button,
+.form-textarea__textarea::-webkit-search-results-button {
+  display: none;
+}
+.form-input__input::-ms-reveal,
+.form-textarea__textarea::-ms-reveal {
+  display: none;
+}
+.form-input__input:not(:read-only):not([readonly]):not(:disabled):not(.error):hover,
+.form-textarea__textarea:not(:read-only):not([readonly]):not(:disabled):not(.error):hover {
+  border-color: #828282;
+}
+.form-input__input:not(:read-only):not([readonly]):not(:disabled):not(.error):focus,
+.form-textarea__textarea:not(:read-only):not([readonly]):not(:disabled):not(.error):focus {
+  border-color: #333333;
+}
+.form-input__input:read-only, .form-input__input[readonly],
+.form-textarea__textarea:read-only,
+.form-textarea__textarea[readonly] {
+  background-color: #F9F9F9;
+}
+.form-input__input:disabled,
+.form-textarea__textarea:disabled {
+  background-color: #F9F9F9;
+  color: #BDBDBD;
+  cursor: not-allowed;
+}
+.form-input__input.error,
+.form-textarea__textarea.error {
+  border-color: #EB5757;
+  color: #EB5757;
+}
+.form-input__input.error + .error-message,
+.form-textarea__textarea.error + .error-message {
+  display: block;
+}
+
+.form-textarea__textarea {
+  padding: 1rem;
+  height: auto;
   resize: none;
 }
 .form-textarea__textarea::-webkit-scrollbar {
@@ -119,7 +168,7 @@ textarea {
 }
 .form-textarea__textarea::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /*# sourceMappingURL=textarea.css.map */

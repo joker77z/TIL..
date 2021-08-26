@@ -4,7 +4,7 @@
     "sass": "sass sass:css",
     "scss": "sass scss:css",
     "watch": "npm run scss -- --watch",
-    "clean" : "rimraf -rf css"
+    "clean": "rimraf -rf css"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",

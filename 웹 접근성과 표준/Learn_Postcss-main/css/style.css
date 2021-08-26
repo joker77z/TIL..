@@ -5,29 +5,29 @@
 }
 @media (min-width: 768px) {
   body {
-    background-color: pink;
+    background-color: green;
   }
 }
 
 @media (max-width: 767px) {
   div {
-    color: blue;
-  }
-}
-@media (min-width: 768px) {
-  div {
-    color: green;
-  }
-}
-
-@media (max-width: 767px) {
-  p {
     font-size: 20px;
   }
 }
 @media (min-width: 768px) {
+  div {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
   p {
-    font-size: 24px;
+    font-weight: 500;
+  }
+}
+@media (min-width: 768px) {
+  p {
+    font-weight: 900;
   }
 }
 
