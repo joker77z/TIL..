@@ -14,7 +14,7 @@
 // 소수인지 검증
 function isPrime(num) {
     if(num===1) return false;
-    for(let i=2; i<=parseInt(Math.sqrt(num/2)); i++) {
+    for(let i=2; i<num/2; i++) {
         if(num%i===0) return false;
     }
     return true;
@@ -22,15 +22,14 @@ function isPrime(num) {
 
 function solution(nums) {
     let answer = [];
-    for(x of nums) {
-        let res=0;
-        let t=0;
+    for(let x of nums) {
+        let res = 0;
         while(x) {
-            t=x%10;
+            let t=x%10;
             res=res*10+t;
-            x=parseInt(x/10);
+            x = parseInt(x/10);
         }
-        if(isPrime(res)) answer.push(res); 
+        if(isPrime(res)) answer.push(res);
     }
     return answer;
 }
