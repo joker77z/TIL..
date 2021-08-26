@@ -52,7 +52,9 @@ function isPrime(num) {
 function solutionB(nums) {
     let answer = [];
     for(let x of nums) {
-        x = Number(String(x).split('').reverse().join(''));
+        // x = Number(String(x).split('').reverse().join(''));
+        x = Number(x.toString().split('').reverse().join(''));
+        
         if(isPrime(x)) answer.push(x);
     }
     return answer;
