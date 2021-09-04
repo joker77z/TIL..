@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-size: 14px;
+}
+
+.input {
+  @apply border w-full p-4 outline-none border-gray5 focus:border-black rounded-md dark:border-primary;
+}
+
+/* 체크됬을 때 스타일 */
+.auto-login:checked + label{
+  @apply bg-checkbox-checked;
+} 
+

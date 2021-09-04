@@ -2,7 +2,7 @@
   "scripts": {
     "start": "run-p tailwind:watch server",
     "tailwind": "postcss src/css/tailwind.css -o src/css/style.css",
-    "tailwind:watch": "npm run tailwind -- -w",
+    "tailwind:watch": "npm run tailwind -- --watch",
     "tailwind:build": "npm run tailwind -- -m",
     "server": "live-server src"
   },
