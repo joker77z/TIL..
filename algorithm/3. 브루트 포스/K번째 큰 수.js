@@ -17,20 +17,23 @@
     k번째 반환.
 
 */
-function solution(nums, k) {
-    let n = nums.length;
-    let arr = [];
-    for(let i=0; i<n; i++) {
-        for(let j=0; j<n; j++) {
-            for(let k=0; k<n; k++) {
-                arr.push(nums[i]+nums[j]+nums[k]);
+function solution(nums, m) {
+    // let arr = [];
+    let tmp = new Set();
+    for(let i=0; i<nums.length; i++) {
+        for(let j=i+1; j<nums.length; j++) {
+            for(k=j+1; k<nums.length; k++) {
+                tmp.add(nums[i] + nums[j] + nums[k]);
             }
         }
     }
-    arr.sort((a, b) => a-b);
-    arr = new Set(arr);
-    // console.log(arr)
-    console.log(arr[k])
+    // arr = [...tmp];
+    // arr.sort((a, b) => b-a);
+    let a = Array.from(tmp).sort((a, b) => b-a);
+    answer = arr[m-1];
+    return answer;
 }
 
-console.log(solution([13, 15, 34, 23, 45, 65, 33, 11, 26, 42], 2))
+
+
+console.log(solution([13, 15, 34, 23, 45, 65, 33, 11, 26, 42], 3)); // 143
