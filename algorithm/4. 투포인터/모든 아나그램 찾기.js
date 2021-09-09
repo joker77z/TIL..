@@ -15,7 +15,7 @@ function compareMaps(map1, map2) {
     if(map1.size !== map2.size) return false;
     for(let [key, value] of map1) {
         if(!map2.has(key)) return false;
-        // if(map2.get(key) !== value) return false;
+        if(map2.get(key) !== value) return false;
     }
     return true;
 }
@@ -38,9 +38,9 @@ function solution(string, target) {
     for(let i=n; i<string.length; i++) {
         sH.set(string[i], sH.get(string[i])+1 || 1);
         // sH랑 tH랑 비교해서 구성이 같으면 answer++
-        console.log(sH)
         if(compareMaps(sH, tH)) {
             answer++;
+            console.log(sH)
         }
         // 맨앞에꺼 빼주기. 만약에 값이 0이면 delete하기
         sH.set(string[lt], sH.get(string[lt])-1);
