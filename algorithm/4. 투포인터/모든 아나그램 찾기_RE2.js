@@ -9,7 +9,7 @@ function compareMap(map1, map2) {
         // 값이 다르면 false
         if(map2.get(key) !== value) return false;
     }
-    console.log(map2)
+    
     // 다 통과하면 true를 반환
     return true;
 }
@@ -19,7 +19,7 @@ function solution(string, target) {
     let sH = new Map();
     let tH = new Map();
     let answer = 0;
-
+    
     // tH 선언
     for(let x of target) {
         tH.set(x, tH.get(x)+1 || 1);
@@ -36,7 +36,7 @@ function solution(string, target) {
         sH.set(string[i], sH.get(string[i])+1 || 1)
         if(compareMap(sH, tH)) {
             answer++;
-            // console.log(sH)
+            // 
         }
         // 첫번째꺼 하나 빼자.
         sH.set(string[lt], sH.get(string[lt])-1);
@@ -47,4 +47,3 @@ function solution(string, target) {
     return answer;
 }
 
-console.log(solution('bacaAacba', 'abc'));
