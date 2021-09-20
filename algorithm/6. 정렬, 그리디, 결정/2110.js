@@ -65,9 +65,12 @@
 // console.log(solution([1, 2, 8, 4, 9], 3));
 
 function solution(nums, k) {
+    nums.sort((a, b) => a-b);
+    console.log(nums)
+
     let answer = 0;
     // 최소거리
-    let lt = nums[0];
+    let lt = nums[1] - nums[0];
 
     // 최대거리
     let rt = nums[nums.length-1] - nums[0];
@@ -75,7 +78,7 @@ function solution(nums, k) {
     while(lt<=rt) {
         // 최소거리
         let mid = parseInt((lt+rt)/2);
-        console.log(mid)
+        // console.log(mid)
 
         // 최소거리보다 같거나 더 큰 거리가 있다면 cnt++;
         let start = nums[0];
@@ -86,12 +89,12 @@ function solution(nums, k) {
                 start = x;
             }
         }
-        console.log(cnt)
+        // console.log(cnt)
 
         // cnt(공유기 개수센거)가 k(설치해야 하는 공유기 수)보다 적다면 최소 거리를 낮춰서(mid를 낮춰서) 설치개수(cnt)를 늘린다.
         if(cnt < k) {
             rt = mid - 1;
-            console.log(mid)
+            // console.log(mid)
         }
         // 최소거리를 최적값을 찾기 위해 거리를 반대로 늘린다. mid값을 올리기 위해 lt를 오른쪽으로 땡긴다.
         else {
@@ -101,4 +104,4 @@ function solution(nums, k) {
     }
     return answer;
 } 
-console.log(solution([1, 2, 4, 8, 9], 3));
+console.log(solution([1, 2, 4, 8, 9], 3)); // 3
