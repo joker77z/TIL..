@@ -14,21 +14,11 @@ const todos = [{
         completed: false
     }
 ];
+/*
+    2번 풀면서 깨달은 점 : 중괄호를 미리 넣지말고 한줄로 먼저 만들어보자.
+*/
 
-const getValues = (todos, key) => {
-    let resultData = "";
-    if (key === 'id') {
-        const idMap = todos.map(el => el.id);
-        resultData = idMap;
-    } else if (key === 'content') {
-        const contentMap = todos.map(el => el.content);
-        resultData = contentMap;
-    } else if (key === 'completed') {
-        const completedMap = todos.map(el => el.completed);
-        resultData = completedMap;
-    }
-    return resultData;
-};
+const getValues = (todos, key) => todos.map(todo => todo[key]);
 
 console.log(getValues(todos, 'id')); // [3, 2, 1]
 console.log(getValues(todos, 'content')); // ['HTML', 'CSS', 'Javascript']

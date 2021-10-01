@@ -15,9 +15,7 @@ let todos = [{
   },
 ];
 
-const addTodo = (todos, newTodo) => {
-  return [...todos, newTodo].sort((a, b) => b.id - a.id);
-};
+const addTodo = (todos, newTodo) => [newTodo, ...todos];
 
 todos = addTodo(todos, {
   id: 4,
