@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .checked {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="todo-form">
+      <input type="text" class="todo-input" />
+      <button class="todo-add">add</button>
+    </form>
+    <ul class="todo-list"></ul>
+    <script>
+
+      let todos = [];
+
+      // 1. 선언
+      const $form = document.querySelector('.todo-form');
+      const $todoInput = document.querySelector('.todo-input');
+      const $todoAdd = document.querySelector('.todo-add');
+      const $todoList = document.querySelector('.todo-list');
+
+      const render = () => {
+          // todoList에 넣는다.
+          $todoList.innerHTML = todos.map({id, content, completed} => `
+            <li id=${id} class="${completed ? checked : ''}" >${content}</li>
+          `)
+      };
+
+      const addTodo = () => {};
+
+      // 3. 엔터로도 되도록 한다.
+
+      const fetchTodos = () => {
+        todos = [
+          { id: 3, content: 'javascript', completed: true },
+          { id: 2, content: 'css', completed: false },
+          { id: 1, content: 'html', completed: true }
+        ];
+        render();
+      };
+      fetchTodos();
+    </script>
+  </body>
+</html>
