@@ -3,8 +3,8 @@ class Stack {
     this.arr = [];
   }
 
-  push(el) {
-    this.arr = [...this.arr, el];
+  push(item) {
+    this.arr = [...this.arr, item];
   }
   pop() {
     const result = this.arr.slice(-1);
