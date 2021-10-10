@@ -17,11 +17,25 @@
 // \. 임의의 문자
 
 const recommandId = newId => {
-  const answer = newId.toLowerCase().replace(/[^\w-_.]/g, '');
-  // .replace(/\.{2,}/g, '.'.replace(/^\.|\.$/g, '').replace(/^$/, 'a'))
-  // .slice(0, 15)
-  // .replace(/\.$/, '');
-  const answerLength = answer.length;
-  return answerLength > 2 ? answer : answer.charAt(answerLength - 1).repeat(3 - answerLength);
-};
+    let result = newId.toLowerCase()
+    .replace(/[^a-z0-9-_.]/g, '')
+    // 점이 3개와 2개가 1개로 바뀐다.
+    .replace(/\.{2,}/g, '.')
+    // 처음과 끝에 위치한 .제거
+    .replace(/^\.|\.$/g, '')
+    // 빈 문자열이면 a를 대입
+    .replace(/^$/g, 'a')
+    // 0-15자만 출력
+    .slice(0, 15)
+    // 끝에 위치한 .제거
+    .replace(/\.$/g, '');
+    while(result.length<=2) {
+        result += result[result.length-1];
+    }
+    return result;
+}
 console.log(recommandId('...!@BaT#*..y.abcdefghijklm'));
+console.log(recommandId('"z-+.^."'));
+console.log(recommandId(''));
+console.log(recommandId('b'));
+console.log(recommandId('abcdefghijklmn.p'));
