@@ -11,7 +11,7 @@ if (!Array.prototype.map2) {
 
     const arr = [];
     for (var i = 0; i < this.length; i++) {
-      arr.push(callback.call(thisArg, this[i], i, this));
+      arr[i] = callback.call(thisArg, this[i], i, this);
     }
     return arr;
   };

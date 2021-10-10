@@ -10,7 +10,7 @@ if (!Array.prototype.filter2) {
 
     const arr = [];
     for (let i = 0; i < this.length; i++) {
-      callback.call(thisArg, this[i], i, this) === true ? arr.push(this[i]) : '';
+      if (callback.call(thisArg, this[i], i, this)) arr.push(this[i]);
     }
     return arr;
   };
