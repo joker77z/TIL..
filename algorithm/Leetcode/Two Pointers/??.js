@@ -12,6 +12,7 @@ function solution(s, k) {
         atLeastK = 0,
         uniqueCount = 0,
         left = 0;
+
       console.log(i);
       for (let right = 0; right < s.length; right++) {
         hashMap[s[right]] = hashMap[s[right]] + 1 || 1;
