@@ -1,34 +1,51 @@
 function solution(intervals) {
-  let answer = [];
-  let tmp = [];
+  let intervalsCopy = [...intervals];
+  if (intervals.length === 1) return intervals;
+  intervalsCopy.sort((a, b) => a[0] - b[0]);
 
-  let a = intervals[0][0];
-  let b = intervals[0][1];
-  console.log(a, b);
+  for (let i = 1; i < intervalsCopy.length; i++) {
+    let prev = intervalsCopy[i - 1];
+    let curr = intervalsCopy[i];
 
-  for (let i = 1; i < intervals.length; i++) {
-    if (i === intervals.length - 1) answer.push([a, b]);
-    if (b >= intervals[i][0]) b = intervals[i][1];
-    else {
-      answer.push([a, b]);
-      a = intervals[i][0];
-      b = intervals[i][1];
+    if (prev[1] >= curr[0]) {
+      intervalsCopy[i] = [Math.min(prev[0], curr[0]), Math.max(prev[1], curr[1])];
+      intervalsCopy.splice(i - 1, 1);
+      i--;
     }
   }
-  return answer;
+  return intervalsCopy;
 }
 
+console.log(
+  solution([
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+  ])
+);
 // console.log(
 //   solution([
-//     [1, 3],
-//     [2, 6],
-//     [8, 10],
-//     [15, 18],
+//     [1, 4],
+//     [4, 5],
+//   ])
+// );
+// console.log(solution([[1, 3]]));
+// console.log(
+//   solution([
+//     [1, 4],
+//     [0, 4],
+//   ])
+// );
+// console.log(
+//   solution([
+//     [1, 4],
+//     [2, 3],
 //   ])
 // );
 console.log(
   solution([
     [1, 4],
-    [4, 5],
+    [0, 0],
   ])
 );
